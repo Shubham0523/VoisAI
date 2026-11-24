@@ -220,3 +220,14 @@ def test_normalize_relabels_dedupes_and_drops():
         ("past_simple", False),
         ("plurals", True),
     ]
+
+
+def test_database_url_from_hosted_provider():
+    from voisai.config import Settings
+
+    url = Settings(
+        database_url="postgres://u:p@ep-x.neon.tech/db?sslmode=require&channel_binding=require"
+    ).database_url
+    assert url == "postgresql+asyncpg://u:p@ep-x.neon.tech/db?ssl=require"
+    local = "postgresql+asyncpg://voisai:voisai@localhost:5433/voisai"
+    assert Settings(database_url=local).database_url == local

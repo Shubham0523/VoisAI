@@ -168,3 +168,31 @@ make sim-local    # ~1 h on a laptop GPU
 ```
 
 Tests: `make test` (unit tests always; DB integration test when Postgres is up).
+
+## Deploy (free tiers)
+
+One repo, three hosts, each pointed at its own folder. A push redeploys only what changed.
+
+| Piece | Host | Config |
+|---|---|---|
+| Frontend (`frontend/`) | Vercel, **Root Directory = `frontend`** | `frontend/vercel.json`; env `NEXT_PUBLIC_API_URL` = the Render URL |
+| API (`backend/`, `SERVICE=api`) | Render free web service | `render.yaml` Blueprint (Docker, Singapore, health check, `backend/**` build filter) |
+| Voice agent (`backend/`, default role) | LiveKit Cloud agent hosting | same `backend/Dockerfile`; `lk agent create` from `backend/` |
+| Postgres + pgvector | Neon (recommended) or Supabase | paste its URL as `DATABASE_URL`; `postgres://…?sslmode=require` is converted automatically |
+
+Why the agent isn't on Render: the worker holds a live WebSocket to LiveKit and runs VAD, turn detection
+and embeddings on the audio. It idles at ~1.5 GB RAM; Render's free instance is 512 MB / 0.1 CPU and
+sleeps after 15 idle minutes. The API idles at ~115 MB and is fine there. The frontend pings
+`/api/health` on page load so a sleeping API is awake by the time you press "Start talking".
+
+Environment variables:
+
+- **Render (API):** `DATABASE_URL`, `LIVEKIT_URL`, `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET`,
+  `API_CORS_ORIGINS` (JSON list, e.g. `["https://voisai.vercel.app"]`), optional `API_CORS_ORIGIN_REGEX`.
+- **LiveKit Cloud (agent):** everything in `.env.example` except the `SIM_*` keys
+  (`lk agent create --secrets-file ../.env` from `backend/`; LiveKit injects its own URL/keys).
+- **Vercel:** `NEXT_PUBLIC_API_URL`.
+
+Use the database's *direct* (non-pooled) URL: asyncpg's prepared statements don't survive PgBouncer
+transaction pooling. Check the image locally with
+`docker build -t voisai-backend backend && docker run -e SERVICE=api -e PORT=8000 -p 8000:8000 --env-file .env voisai-backend`.

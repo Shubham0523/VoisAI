@@ -18,6 +18,21 @@ function saveUserId(id: string) {
   }
 }
 
+/** The free API host sleeps when idle and takes up to a minute to wake. Ping it as soon as the
+ * page opens so it's warm by the time the learner presses "Start talking". */
+export async function wakeApi(signal?: AbortSignal): Promise<void> {
+  for (let i = 0; i < 30; i++) {
+    try {
+      const res = await fetch(`${API_URL}/api/health`, { signal, cache: "no-store" });
+      if (res.ok) return;
+    } catch (e) {
+      if (signal?.aborted) throw e;
+    }
+    await new Promise((r) => setTimeout(r, 3000));
+  }
+  throw new Error("server did not wake up");
+}
+
 export type Connection = { serverUrl: string; token: string; room: string; userId: string };
 
 export async function fetchConnection(): Promise<Connection> {

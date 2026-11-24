@@ -1,0 +1,30 @@
+# Render Blueprint: the API only. The frontend is on Vercel (root directory: frontend) and the
+# voice agent runs on LiveKit Cloud from the same backend image (see README "Deploy").
+services:
+  - type: web
+    name: voisai-api
+    runtime: docker
+    plan: free
+    region: singapore # closest Render region to the target learners (India)
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true
+    buildFilter:
+      paths:
+        - backend/** # frontend-only pushes don't redeploy the API
+    envVars:
+      - key: SERVICE
+        value: api
+      - key: DATABASE_URL # Neon / Supabase / any Postgres with pgvector; plain postgres:// is fine
+        sync: false
+      - key: LIVEKIT_URL
+        sync: false
+      - key: LIVEKIT_API_KEY
+        sync: false
+      - key: LIVEKIT_API_SECRET
+        sync: false
+      - key: API_CORS_ORIGINS # JSON list, e.g. ["https://voisai.vercel.app"]
+        sync: false
+      - key: API_CORS_ORIGIN_REGEX # optional, e.g. https://voisai-.*\.vercel\.app for previews
+        sync: false

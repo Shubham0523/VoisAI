@@ -2,15 +2,25 @@
 
 import { LiveKitRoom } from "@livekit/components-react";
 import Link from "next/link";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { CallView } from "@/components/CallView";
-import { type Connection, fetchConnection } from "@/lib/api";
+import { type Connection, fetchConnection, wakeApi } from "@/lib/api";
 
 export default function Home() {
   const [conn, setConn] = useState<Connection | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [awake, setAwake] = useState(false);
+
+  useEffect(() => {
+    const ctl = new AbortController();
+    wakeApi(ctl.signal).then(
+      () => setAwake(true),
+      () => !ctl.signal.aborted && setAwake(true), // let the click surface the real error
+    );
+    return () => ctl.abort();
+  }, []);
 
   const start = useCallback(async () => {
     setBusy(true);
@@ -62,6 +72,9 @@ export default function Home() {
           >
             {busy ? "Connecting…" : "Start talking"}
           </button>
+          {!awake && (
+            <p className="text-xs text-[var(--muted)]">Waking up the server, this can take a minute…</p>
+          )}
           {error && <p className="max-w-sm text-sm text-[var(--danger)]">{error}</p>}
         </div>
       )}

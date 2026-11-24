@@ -8,6 +8,7 @@ That matters on free tiers: when one provider rate-limits, point a role at anoth
 from functools import lru_cache
 from pathlib import Path
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 _BACKEND_DIR = Path(__file__).resolve().parent.parent
@@ -57,10 +58,30 @@ class Settings(BaseSettings):
 
     # --- API
     api_cors_origins: list[str] = ["http://localhost:3000"]
+    # e.g. https://voisai(-[a-z0-9-]+)?\.vercel\.app to also allow Vercel preview deploys
+    api_cors_origin_regex: str | None = None
 
     # --- Product knobs
     learner_l1_default: str = "Hindi"  # native language assumption; drives L1-specific error priors
     recast_min_confidence: float = 0.8  # only recast errors the Analyst is sure about
+
+    @field_validator("database_url")
+    @classmethod
+    def _asyncpg_url(cls, v: str) -> str:
+        """Accept the plain URL hosts hand out (Neon, Supabase, Render) and adapt it for asyncpg:
+        postgres:// -> postgresql+asyncpg://, sslmode=require -> ssl=require, and drop
+        libpq-only options asyncpg rejects."""
+        from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+
+        for prefix in ("postgres://", "postgresql://"):
+            if v.startswith(prefix):
+                v = "postgresql+asyncpg://" + v[len(prefix) :]
+        parts = urlsplit(v)
+        q = dict(parse_qsl(parts.query))
+        if "sslmode" in q:
+            q["ssl"] = q.pop("sslmode")
+        q.pop("channel_binding", None)
+        return urlunsplit(parts._replace(query=urlencode(q)))
 
 
 @lru_cache
