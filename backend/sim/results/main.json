@@ -1,0 +1,1766 @@
+{
+ "tag": "main",
+ "planner": "tutor",
+ "sessions": 5,
+ "turns": 5,
+ "learners": {
+  "sim-rahul": {
+   "persona": {
+    "id": "sim-rahul",
+    "name": "Rahul",
+    "l1": "Hindi",
+    "level": "B1",
+    "bio": "26, software tester at an IT company in Pune, from Indore. Lives with two flatmates, plays cricket on Sundays, preparing for job interviews at bigger companies, misses his mother's cooking.",
+    "error_rates": {
+     "articles": 0.6,
+     "past_simple": 0.5,
+     "stative_continuous": 0.7,
+     "prepositions_time_place": 0.5
+    },
+    "style": "friendly, a bit shy, gives medium-length answers",
+    "known_facts": []
+   },
+   "score": {
+    "analyst": {
+     "overall": {
+      "tp": 36,
+      "fp": 4,
+      "fn": 39,
+      "precision": 0.9,
+      "recall": 0.48
+     },
+     "per_skill": {
+      "articles": {
+       "tp": 30,
+       "fp": 0,
+       "fn": 33,
+       "precision": 1.0,
+       "recall": 0.476
+      },
+      "gerund_infinitive": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "precision": 0.0,
+       "recall": null
+      },
+      "past_simple": {
+       "tp": 4,
+       "fp": 0,
+       "fn": 5,
+       "precision": 1.0,
+       "recall": 0.444
+      },
+      "prepositions_time_place": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 1,
+       "precision": 1.0,
+       "recall": 0.667
+      },
+      "present_perfect": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "precision": 0.0,
+       "recall": null
+      },
+      "sv_agreement": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "precision": 0.0,
+       "recall": null
+      },
+      "word_choice": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "precision": 0.0,
+       "recall": null
+      }
+     }
+    },
+    "planner": {
+     "sessions_targeting_a_planted_skill": 0.8,
+     "planted_share_of_targets": 0.7
+    },
+    "friend": {
+     "replies": 25,
+     "teacher_leak_rate": 0.0,
+     "leaks": [],
+     "recast_rate": 0.167,
+     "modeled_within_2_rate": 0.167
+    }
+   },
+   "sessions": [
+    {
+     "n": 1,
+     "plan": {
+      "target_skills": [
+       "present_perfect",
+       "present_continuous"
+      ],
+      "target_words": [
+       "reluctant",
+       "overwhelmed",
+       "hectic"
+      ],
+      "opener": "Greet them warmly like a friend you talk to every day and ask how their day is going. Two short sentences.",
+      "followup_ids": [],
+      "benchmark": true,
+      "level": "B1",
+      "session_number": 2,
+      "rationale": "present_perfect: no evidence yet; present_continuous: no evidence yet"
+     },
+     "rates_before": {
+      "articles": 0.6,
+      "past_simple": 0.5,
+      "stative_continuous": 0.7,
+      "prepositions_time_place": 0.5
+     },
+     "turns": [
+      {
+       "clean": "Hey Maya, it's going okay. I\u2019m stuck at work testing a new feature, and my flatmates and I are planning to play cricket this Sunday. I also started preparing for some interviews this week, hoping to move to a bigger company.",
+       "spoken": "Hey Maya, it's going okay. I\u2019m stuck in work testing a new feature, and my flatmates and I are planning to play cricket this Sunday. I also start preparing for some interviews this week, hoping to move to bigger company.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "started",
+         "corrupted": "start"
+        },
+        {
+         "skill_id": "prepositions_time_place",
+         "original": "at work",
+         "corrupted": "in work"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a bigger",
+         "corrupted": "bigger"
+        }
+       ],
+       "reply": "Sounds busy but exciting! Good luck with the interview prep\u2014what kind of role are you aiming for? And are you all set with the cricket gear for Sunday?",
+       "adopted_word": null
+      },
+      {
+       "clean": "Thanks! I\u2019m aiming for a QA Engineer role at a larger tech firm. The gear is all ready; we\u2019re just waiting for the rain to clear before we hit the pitch.",
+       "spoken": "Thanks! I\u2019m aiming for QA Engineer role at larger tech firm. gear is all ready; we\u2019re just waiting for rain to clear before we hit pitch.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a QA",
+         "corrupted": "QA"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a larger",
+         "corrupted": "larger"
+        },
+        {
+         "skill_id": "articles",
+         "original": "The gear",
+         "corrupted": "gear"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the rain",
+         "corrupted": "rain"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the pitch",
+         "corrupted": "pitch"
+        }
+       ],
+       "reply": "Congrats on targeting a QA Engineer spot at a bigger company. Have you ever interviewed with a multinational before, or is this your first time? And when the rain clears, are you all feeling a bit reluctant to miss the game if it drizzles again?",
+       "adopted_word": null
+      },
+      {
+       "clean": "It\u2019s my first time with a multinational. I\u2019m a bit nervous but hopeful\u2014just hoping the rain clears so we can play without missing the match.",
+       "spoken": "It\u2019s my first time with multinational. I\u2019m a bit nervous but hopeful\u2014just hoping rain clears so we can play without missing match.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a multinational",
+         "corrupted": "multinational"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the rain",
+         "corrupted": "rain"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the match",
+         "corrupted": "match"
+        }
+       ],
+       "reply": "I can imagine the nerves, but it sounds like you\u2019ve got a solid plan. Speaking of days out, what\u2019s a trip or outing you\u2019ve loved that still makes you smile when you think about it? And did you ever feel a little overwhelmed by how perfect everything turned out?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I remember a weekend trip to Mahabaleshwar last year \u2013 the hills were misty, and we hiked to the viewpoint. The view was so clear that even now I smile when I think about the sunrise. It was a bit overwhelming, but the quiet moments made it perfect.",
+       "spoken": "I remember a weekend trip to Mahabaleshwar last year \u2013 hills were misty, and we hiked to viewpoint. The view was so clear that even now I smile when I think about the sunrise. It was a bit overwhelming, but quiet moments make it perfect.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "made",
+         "corrupted": "make"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the hills",
+         "corrupted": "hills"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the viewpoint",
+         "corrupted": "viewpoint"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the quiet",
+         "corrupted": "quiet"
+        }
+       ],
+       "reply": "That sunrise sounds magical, especially after a hectic week of testing. How\u2019s the new feature coming along\u2014any tricky bugs you\u2019ve had to chase down? And are you still hoping the weather won\u2019t keep you from the game, missing the match?",
+       "adopted_word": null
+      },
+      {
+       "clean": "The new feature is mostly stable, but I hit a tricky timing bug that caused a false negative in one of the edge\u2011case tests. I\u2019m still hoping the rain clears so we can hit the pitch on Sunday. Meanwhile I\u2019ll keep polishing my interview notes and practice a few mock scenarios.",
+       "spoken": "The new feature is mostly stable, but I hit tricky timing bug that caused a false negative in one of edge\u2011case tests. I\u2019m still hoping rain clears so we can hit pitch in Sunday. Meanwhile I\u2019ll keep polishing my interview notes and practice a few mock scenarios.",
+       "injected": [
+        {
+         "skill_id": "prepositions_time_place",
+         "original": "on Sunday",
+         "corrupted": "in Sunday"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a tricky",
+         "corrupted": "tricky"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the edge",
+         "corrupted": "edge"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the rain",
+         "corrupted": "rain"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the pitch",
+         "corrupted": "pitch"
+        }
+       ],
+       "reply": "I actually hiked to a viewpoint last month and felt the same calm after solving a tough bug. How\u2019s the mock interview practice going, and do you think the rain will finally clear for Sunday\u2019s match?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 188,
+      "errors": 11,
+      "errors_per_100w": 5.85,
+      "target_accuracy": 1.0,
+      "mattr": 0.93,
+      "mean_utterance_len": 37.6,
+      "subordination_rate": 3.2,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [],
+      "target_skills": [
+       "present_continuous",
+       "present_perfect"
+      ],
+      "benchmark": true,
+      "cefr": null
+     },
+     "opener": "Hey there! How's your day going?"
+    },
+    {
+     "n": 2,
+     "plan": {
+      "target_skills": [
+       "articles",
+       "present_perfect"
+      ],
+      "target_words": [
+       "hectic",
+       "thrilled",
+       "struggle"
+      ],
+      "opener": "Greet them warmly like a friend you talk to every day and ask how their day is going. Two short sentences.",
+      "followup_ids": [],
+      "benchmark": false,
+      "level": "B1",
+      "session_number": 3,
+      "rationale": "articles: mastery 0.18 (weak); present_perfect: no evidence yet"
+     },
+     "rates_before": {
+      "articles": 0.582,
+      "past_simple": 0.485,
+      "stative_continuous": 0.679,
+      "prepositions_time_place": 0.485
+     },
+     "turns": [
+      {
+       "clean": "Hey Maya, it\u2019s going alright. I spent most of the day testing a new feature for the app we\u2019re working on and then I hit the cricket field with my teammates on Sunday. I\u2019ve also been going through interview prep for next month, so it\u2019s a bit hectic.",
+       "spoken": "Hey Maya, it\u2019s going alright. I spent most of day testing a new feature for app we\u2019re working on and then I hit cricket field with my teammates in Sunday. I\u2019ve also been going through interview prep for next month, so it\u2019s a bit hectic.",
+       "injected": [
+        {
+         "skill_id": "prepositions_time_place",
+         "original": "on Sunday",
+         "corrupted": "in Sunday"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the day",
+         "corrupted": "day"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the app",
+         "corrupted": "app"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the cricket",
+         "corrupted": "cricket"
+        }
+       ],
+       "reply": "Sounds like a packed day\u2014testing a new feature and still finding time for cricket on Sunday, nice! How's the interview prep coming along, any particular topics you're focusing on?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019ve been mainly focusing on data structures and test\u2011case design, plus a few coding challenges on LeetCode. The interview schedule is tight, so I\u2019m squeezing in practice each night after work. It\u2019s pretty hectic, but I\u2019m hoping the effort pays off.",
+       "spoken": "I\u2019ve been mainly focusing on data structures and test\u2011case design, plus a few coding challenges on LeetCode. interview schedule is tight, so I\u2019m squeezing in practice each night after work. It\u2019s pretty hectic, but I\u2019m hoping effort pays off.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "The interview",
+         "corrupted": "interview"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the effort",
+         "corrupted": "effort"
+        }
+       ],
+       "reply": "That dedication will definitely show up in the interview. Have you gotten a chance to try any mock interviews yet, or are you still doing solo practice?",
+       "adopted_word": "hectic"
+      },
+      {
+       "clean": "I\u2019ve done a couple of mock sessions with a friend from the alumni group; they were good for timing. Still mostly solo coding, but the mock interviews helped me spot my weak spots. Also, I\u2019m missing my mom\u2019s cooking this week\u2014she made a special curry that I wish I could try again.",
+       "spoken": "I\u2019ve done couple of mock sessions with a friend from alumni group; they were good for timing. Still mostly solo coding, but mock interviews helped me spot my weak spots. Also, I\u2019m missing my mom\u2019s cooking this week\u2014she make a special curry that I wish I could try again.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "made",
+         "corrupted": "make"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a couple",
+         "corrupted": "couple"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the alumni",
+         "corrupted": "alumni"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the mock",
+         "corrupted": "mock"
+        }
+       ],
+       "reply": "The interview schedule sounds intense, but those mock sessions should make a big difference. I can imagine how hectic it feels juggling work, prep, and cravings for your mom\u2019s curry\u2014what\u2019s her special dish called?",
+       "adopted_word": null
+      },
+      {
+       "clean": "Her special dish is a spicy mutton curry, the one with the thick gravy that my mom always makes just before Sunday games. I wish I could have it now, but I\u2019ll try a quick version tonight and maybe bring some back for the next cricket match.",
+       "spoken": "Her special dish is spicy mutton curry, one with thick gravy that my mom always makes just before Sunday games. I wish I could have it now, but I\u2019ll try a quick version tonight and maybe bring some back for the next cricket match.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a spicy",
+         "corrupted": "spicy"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the one",
+         "corrupted": "one"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the thick",
+         "corrupted": "thick"
+        }
+       ],
+       "reply": "That thick, spicy mutton curry sounds amazing\u2014your mom really makes a dish that brings everyone together before the game. I\u2019m thrilled you\u2019ll try a quick version tonight; how do you think it\u2019ll turn out?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019m hoping the quick version comes close to the original, but I\u2019m also planning to grab a jar of the gravy from the local store to share with the team next Sunday. It\u2019ll be nice to have a taste of home before the match.",
+       "spoken": "I\u2019m hoping the quick version comes close to original, but I\u2019m also planning to grab jar of the gravy from local store to share with team next Sunday. It\u2019ll be nice to have taste of home before the match.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the original",
+         "corrupted": "original"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a jar",
+         "corrupted": "jar"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the local",
+         "corrupted": "local"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the team",
+         "corrupted": "team"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a taste",
+         "corrupted": "taste"
+        }
+       ],
+       "reply": "Sounds perfect, a little taste of home to boost the team\u2019s spirit. Do you think the store\u2011bought gravy will capture the same flavor, or will you have to tweak it a bit?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 233,
+      "errors": 8,
+      "errors_per_100w": 3.43,
+      "target_accuracy": 0.143,
+      "mattr": 0.928,
+      "mean_utterance_len": 46.6,
+      "subordination_rate": 1.7,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [
+       "hectic"
+      ],
+      "target_skills": [
+       "articles",
+       "present_perfect"
+      ],
+      "benchmark": false,
+      "cefr": null
+     },
+     "opener": "Hey! How's your day going so far?"
+    },
+    {
+     "n": 3,
+     "plan": {
+      "target_skills": [
+       "articles",
+       "prepositions_time_place"
+      ],
+      "target_words": [
+       "thrilled",
+       "struggle",
+       "tempting"
+      ],
+      "opener": "Greet them like an old friend and ask how this went: Practicing mock interview scenarios and preparing for an interview. Keep it to two short sentences.",
+      "followup_ids": [
+       "b266e756-9839-40da-85a8-b6979a0424df"
+      ],
+      "benchmark": false,
+      "level": "B1",
+      "session_number": 4,
+      "rationale": "articles: mastery 0.12 (weak); prepositions_time_place: mastery 0.39 (unknown)"
+     },
+     "rates_before": {
+      "articles": 0.436,
+      "past_simple": 0.47,
+      "stative_continuous": 0.659,
+      "prepositions_time_place": 0.47
+     },
+     "turns": [
+      {
+       "clean": "The mock interview went okay, but the interviewer asked more about how I handle unexpected bugs during a test run, which I hadn't practiced much. I realized I need to give clearer examples from my recent automation project. Also, the week was busy with a team sprint demo and a cricket match on Sunday.",
+       "spoken": "mock interview went okay, but the interviewer asked more about how I handle unexpected bugs during a test run, which I hadn't practiced much. I realized I need to give clearer examples from my recent automation project. Also, the week was busy with a team sprint demo and a cricket match on Sunday.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "The mock",
+         "corrupted": "mock"
+        }
+       ],
+       "reply": "Sounds like a solid learning point\u2014sharing that automation story will definitely showcase your problem\u2011solving. How did the cricket match turn out, and did the rain hold off?",
+       "adopted_word": null
+      },
+      {
+       "clean": "The match was a draw because of rain, but we still had a good time on the field. I\u2019ll make sure to bring that automation story to the interview next week.",
+       "spoken": "The match was a draw because of rain, but we still had good time on the field. I\u2019ll make sure to bring that automation story to the interview next week.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a good",
+         "corrupted": "good"
+        }
+       ],
+       "reply": "Glad you still got to enjoy the game despite the drizzle. What\u2019s your home office like\u2014any spot that makes you feel especially focused when you\u2019re prepping the automation story?",
+       "adopted_word": null
+      },
+      {
+       "clean": "My home office is a small corner in the apartment with a whiteboard and a window overlooking the street. I keep a cup of tea and a stack of test case sheets there, and the quiet of that spot helps me concentrate on the automation story. I usually turn off my phone and set a timer to stay on task.",
+       "spoken": "My home office is a small corner in apartment with whiteboard and a window overlooking street. I keep a cup of tea and stack of test case sheets there, and quiet of that spot helps me concentrate on automation story. I usually turn off my phone and set a timer to stay on task.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the apartment",
+         "corrupted": "apartment"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a whiteboard",
+         "corrupted": "whiteboard"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the street",
+         "corrupted": "street"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a stack",
+         "corrupted": "stack"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the quiet",
+         "corrupted": "quiet"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the automation",
+         "corrupted": "automation"
+        }
+       ],
+       "reply": "That cozy corner sounds perfect\u2014I\u2019m thrilled how you\u2019ve turned it into a focused zone. Do you have a favorite tea blend that keeps you in the flow while you rehearse your story?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I usually stick with a simple green tea, it\u2019s not too strong but enough to keep me alert without the buzz. It\u2019s the quiet corner with the window that really helps me stay focused on the automation story.",
+       "spoken": "I usually stick with simple green tea, it\u2019s not too strong but enough to keep me alert without buzz. It\u2019s the quiet corner with window that really helps me stay focused on the automation story.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a simple",
+         "corrupted": "simple"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the buzz",
+         "corrupted": "buzz"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the window",
+         "corrupted": "window"
+        }
+       ],
+       "reply": "Green tea is a nice, gentle boost. Do you ever meet friends after work for a quick coffee or a game night, and a stack of board games or cards to keep the evening lively? How do you balance those meet\u2011ups when the interview prep starts to feel like a struggle?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I usually meet friends on weekdays after office for a quick coffee or a small game night, but once the interview prep ramps up I skip the meet\u2011ups and focus on coding practice. I keep a short 15\u2011minute break for tea and a stretch to avoid burnout, then return to the automation story. It\u2019s a bit tough, but the breaks keep me fresh.",
+       "spoken": "I usually meet friends on weekdays after office for a quick coffee or a small game night, but once the interview prep ramps up I skip meet\u2011ups and focus on coding practice. I keep short 15\u2011minute break for tea and stretch to avoid burnout, then return to the automation story. It\u2019s a bit tough, but the breaks keep me fresh.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the meet",
+         "corrupted": "meet"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a short",
+         "corrupted": "short"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a stretch",
+         "corrupted": "stretch"
+        }
+       ],
+       "reply": "Those short tea breaks sound like the perfect reset. Have you found any particular stretch or quick exercise that really clears your mind before you dive back into coding?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 237,
+      "errors": 6,
+      "errors_per_100w": 2.53,
+      "target_accuracy": 0.25,
+      "mattr": 0.909,
+      "mean_utterance_len": 47.4,
+      "subordination_rate": 2.1,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [],
+      "target_skills": [
+       "articles",
+       "prepositions_time_place"
+      ],
+      "benchmark": false,
+      "cefr": "B1"
+     },
+     "opener": "Hey, how did the mock interview practice go? Did anything surprising come up while you were prepping?"
+    },
+    {
+     "n": 4,
+     "plan": {
+      "target_skills": [
+       "articles",
+       "stative_continuous"
+      ],
+      "target_words": [
+       "thrilled",
+       "tempting",
+       "procrastinate"
+      ],
+      "opener": "Greet them like an old friend and ask how this went: Planning to make a quick version of mom's mutton curry tonight. Keep it to two short sentences.",
+      "followup_ids": [
+       "9391bd32-3936-4230-b837-973949ac666a"
+      ],
+      "benchmark": false,
+      "level": "B1",
+      "session_number": 5,
+      "rationale": "articles: mastery 0.13 (weak); stative_continuous: no evidence yet"
+     },
+     "rates_before": {
+      "articles": 0.327,
+      "past_simple": 0.456,
+      "stative_continuous": 0.639,
+      "prepositions_time_place": 0.353
+     },
+     "turns": [
+      {
+       "clean": "Hey Maya, I\u2019m still waiting for my mom\u2019s mutton curry to finish, so I\u2019ll just have a quick bowl of soup tonight. The office is a bit overwhelming with the interview prep, but I\u2019ll try to finish the code test by tomorrow. How are you?",
+       "spoken": "Hey Maya, I\u2019m still waiting for my mom\u2019s mutton curry to finish, so I\u2019ll just have quick bowl of soup tonight. office is a bit overwhelming with interview prep, but I\u2019ll try to finish the code test by tomorrow. How are you?",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a quick",
+         "corrupted": "quick"
+        },
+        {
+         "skill_id": "articles",
+         "original": "The office",
+         "corrupted": "office"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the interview",
+         "corrupted": "interview"
+        }
+       ],
+       "reply": "I\u2019m doing well, thanks! A warm soup sounds perfect when things get hectic. How are you feeling about the code test\u2014any part that\u2019s giving you trouble?",
+       "adopted_word": "overwhelmed"
+      },
+      {
+       "clean": "I\u2019m finding the test pretty straightforward, just the logic part is a bit tricky. I\u2019ll spend the weekend reviewing the patterns and hope to finish it by tomorrow. How\u2019s your week going?",
+       "spoken": "I\u2019m finding test pretty straightforward, just logic part is a bit tricky. I\u2019ll spend the weekend reviewing the patterns and hope to finish it by tomorrow. How\u2019s your week going?",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the test",
+         "corrupted": "test"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the logic",
+         "corrupted": "logic"
+        }
+       ],
+       "reply": "My week\u2019s been busy but good; the office is a quiet corner with a plant that keeps me feeling refreshed, and I\u2019m thrilled to see it finally getting a bit brighter. What does your workspace look like when you\u2019re diving into those logic puzzles?",
+       "adopted_word": null
+      },
+      {
+       "clean": "My desk is cluttered with a few sticky notes and a cup of tea. I keep a small whiteboard on the wall where I draw quick flow charts for the logic puzzles. The lights are dim so I can focus without any distractions.",
+       "spoken": "My desk is cluttered with a few sticky notes and a cup of tea. I keep a small whiteboard on the wall where I draw quick flow charts for the logic puzzles. The lights are dim so I can focus without any distractions.",
+       "injected": [],
+       "reply": "That whiteboard trick works wonders\u2014I\u2019m also often finding the test easier once I sketch the flow on a tiny board. A cup of tea in a dim room can be tempting, but I try to step away for a quick stretch every hour. Do you have a favorite stretch that helps reset your mind?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I do a quick neck stretch and a few shoulder rolls; it helps me feel less stuck. The office is quiet but I\u2019m still a bit reluctant to take long breaks, so I keep the stretch short. This week I\u2019ve been juggling interview prep and trying to finish my code test before the deadline.",
+       "spoken": "I do a quick neck stretch and a few shoulder rolls; it helps me feel less stuck. The office is quiet but I\u2019m still a bit reluctant to take long breaks, so I keep the stretch short. This week I\u2019ve been juggling interview prep and trying to finish my code test before the deadline.",
+       "injected": [],
+       "reply": "Sounds like you\u2019ve got a solid routine. Just make sure you don\u2019t end up procrastinating the breaks completely\u2014those few seconds can really recharge you. Do you ever try a quick breathing exercise after the neck stretch?",
+       "adopted_word": "reluctant"
+      },
+      {
+       "clean": "I do try a short breathing exercise\u2014just inhale for four seconds, hold for four, exhale for four. It helps clear my mind before I dive back into the logic puzzles. This weekend I\u2019m also planning a quick cricket practice with my flatmates to break up the coding grind.",
+       "spoken": "I do try a short breathing exercise\u2014just inhale for four seconds, hold for four, exhale for four. It helps clear my mind before I dive back into logic puzzles. This weekend I\u2019m also planning a quick cricket practice with my flatmates to break up coding grind.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the logic",
+         "corrupted": "logic"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the coding",
+         "corrupted": "coding"
+        }
+       ],
+       "reply": "Nice, that box breathing really sharpens focus. Hope the cricket game gives you a good break\u2014are you all set with the gear and a spot to play?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 226,
+      "errors": 4,
+      "errors_per_100w": 1.77,
+      "target_accuracy": 0.0,
+      "mattr": 0.918,
+      "mean_utterance_len": 45.2,
+      "subordination_rate": 1.8,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [
+       "overwhelmed",
+       "reluctant"
+      ],
+      "target_skills": [
+       "articles",
+       "stative_continuous"
+      ],
+      "benchmark": false,
+      "cefr": "B1"
+     },
+     "opener": "Hey! How's the quick mom's mutton curry coming along tonight?"
+    },
+    {
+     "n": 5,
+     "plan": {
+      "target_skills": [
+       "articles",
+       "stative_continuous"
+      ],
+      "target_words": [
+       "thrilled",
+       "vibe",
+       "frustrating"
+      ],
+      "opener": "Greet them like an old friend and ask how this went: Plans to play cricket with flatmates this Sunday. Keep it to two short sentences.",
+      "followup_ids": [
+       "c3ea8695-5011-4d68-aab7-4f36565d70bf"
+      ],
+      "benchmark": false,
+      "level": "B1",
+      "session_number": 6,
+      "rationale": "articles: mastery 0.11 (weak); stative_continuous: no evidence yet"
+     },
+     "rates_before": {
+      "articles": 0.246,
+      "past_simple": 0.443,
+      "stative_continuous": 0.479,
+      "prepositions_time_place": 0.342
+     },
+     "turns": [
+      {
+       "clean": "It went well, we played a friendly match and I scored a few runs. I felt a bit shy on the field but it was fun. Overall, I\u2019m thrilled with how the game turned out.",
+       "spoken": "It go well, we play friendly match and I scored a few runs. I feel a bit shy on field but it was fun. Overall, I\u2019m thrilled with how game turned out.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "went",
+         "corrupted": "go"
+        },
+        {
+         "skill_id": "past_simple",
+         "original": "played",
+         "corrupted": "play"
+        },
+        {
+         "skill_id": "past_simple",
+         "original": "felt",
+         "corrupted": "feel"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a friendly",
+         "corrupted": "friendly"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the field",
+         "corrupted": "field"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the game",
+         "corrupted": "game"
+        }
+       ],
+       "reply": "That's great, it went well! Did you manage to wrap up that coding test before the weekend?",
+       "adopted_word": "thrilled"
+      },
+      {
+       "clean": "I finished the coding test last night, but it was a real struggle to get all the logic right. I think I\u2019ll need to review some of the interview questions tomorrow. Hope your day goes well!",
+       "spoken": "I finish coding test last night, but it was a real struggle to get all the logic right. I think I\u2019ll need to review some of interview questions tomorrow. Hope your day goes well!",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "finished",
+         "corrupted": "finish"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the coding",
+         "corrupted": "coding"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the interview",
+         "corrupted": "interview"
+        }
+       ],
+       "reply": "Glad you got it done, even if it was tough. Any particular topics you\u2019re planning to focus on for tomorrow\u2019s interview prep?",
+       "adopted_word": "struggle"
+      },
+      {
+       "clean": "I\u2019ll focus on data structures, especially arrays and linked lists, and also practice some dynamic programming problems. I\u2019ve got a mock interview scheduled after lunch, so I\u2019ll try to simulate the real environment. Hope your project is progressing smoothly!",
+       "spoken": "I\u2019ll focus on data structures, especially arrays and linked lists, and also practice some dynamic programming problems. I\u2019ve get a mock interview scheduled after lunch, so I\u2019ll try to simulate real environment. Hope your project is progressing smoothly!",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "got",
+         "corrupted": "get"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the real",
+         "corrupted": "real"
+        }
+       ],
+       "reply": "Sounds like a solid plan, and the mock interview will be good practice. My own project is moving along, though I\u2019m still polishing a few features. How do you like to unwind between those intense coding sessions?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I usually just sit in the garden and listen to music, or I play a quick game of chess on my phone. After that I make a cup of tea and think about my mom\u2019s cooking\u2014she makes the best onion bhaji. It helps me relax before the next round of practice.",
+       "spoken": "I usually just sit in the garden and listen to music, or I play a quick game of chess on my phone. After that I make a cup of tea and think about my mom\u2019s cooking\u2014she makes best onion bhaji. It helps me relax before next round of practice.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the best",
+         "corrupted": "best"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the next",
+         "corrupted": "next"
+        }
+       ],
+       "reply": "That sounds so calming\u2014garden, music, chess, and a cup of tea with thoughts of your mom\u2019s onion bhaji. Do you ever try making a quick version of her bhaji yourself when you need a break?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I tried making a quick bhaji once after a long day, but it was a bit messy and I kept forgetting the spices. It tasted okay, but I miss the exact flavor from my mom\u2019s kitchen. Next time I\u2019ll try to get the timing right.",
+       "spoken": "I try making a quick bhaji once after long day, but it was a bit messy and I kept forgetting spices. It tasted okay, but I miss the exact flavor from my mom\u2019s kitchen. Next time I\u2019ll try to get the timing right.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "tried",
+         "corrupted": "try"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a long",
+         "corrupted": "long"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the spices",
+         "corrupted": "spices"
+        }
+       ],
+       "reply": "I\u2019m a bit nervous about my next deadline, so I totally get the trial\u2011and\u2011error with the bhaji. If you can, jot down the spice amounts next time\u2014you\u2019ll be thrilled with how close you can get to your mom\u2019s flavor. Any other dishes you\u2019re thinking of mastering?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 205,
+      "errors": 11,
+      "errors_per_100w": 5.37,
+      "target_accuracy": 0.0,
+      "mattr": 0.921,
+      "mean_utterance_len": 41,
+      "subordination_rate": 1.0,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [
+       "struggle",
+       "thrilled"
+      ],
+      "target_skills": [
+       "articles",
+       "stative_continuous"
+      ],
+      "benchmark": false,
+      "cefr": "B1"
+     },
+     "opener": "Hey! How did your cricket game with the flatmates go on Sunday?"
+    }
+   ]
+  },
+  "sim-priya": {
+   "persona": {
+    "id": "sim-priya",
+    "name": "Priya",
+    "l1": "Tamil",
+    "level": "A2",
+    "bio": "34, home baker in Chennai starting to sell cakes on Instagram. Has two kids, her husband works in a bank, loves Ilaiyaraaja songs and watering her plants every morning.",
+    "error_rates": {
+     "past_simple": 0.6,
+     "plurals": 0.5,
+     "sv_agreement": 0.6,
+     "question_formation": 0.7,
+     "articles": 0.4
+    },
+    "style": "warm, enthusiastic, short sentences",
+    "known_facts": []
+   },
+   "score": {
+    "analyst": {
+     "overall": {
+      "tp": 30,
+      "fp": 3,
+      "fn": 27,
+      "precision": 0.909,
+      "recall": 0.526
+     },
+     "per_skill": {
+      "articles": {
+       "tp": 22,
+       "fp": 0,
+       "fn": 22,
+       "precision": 1.0,
+       "recall": 0.5
+      },
+      "countable_uncountable": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "precision": 0.0,
+       "recall": null
+      },
+      "past_simple": {
+       "tp": 7,
+       "fp": 0,
+       "fn": 5,
+       "precision": 1.0,
+       "recall": 0.583
+      },
+      "plurals": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "precision": 0.0,
+       "recall": null
+      },
+      "sv_agreement": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "precision": 1.0,
+       "recall": 1.0
+      },
+      "word_choice": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "precision": 0.0,
+       "recall": null
+      }
+     }
+    },
+    "planner": {
+     "sessions_targeting_a_planted_skill": 0.8,
+     "planted_share_of_targets": 0.4
+    },
+    "friend": {
+     "replies": 25,
+     "teacher_leak_rate": 0.0,
+     "leaks": [],
+     "recast_rate": 0.0,
+     "modeled_within_2_rate": 0.231
+    }
+   },
+   "sessions": [
+    {
+     "n": 1,
+     "plan": {
+      "target_skills": [
+       "present_perfect",
+       "present_continuous"
+      ],
+      "target_words": [
+       "reluctant",
+       "overwhelmed",
+       "hectic"
+      ],
+      "opener": "Greet them warmly like a friend you talk to every day and ask how their day is going. Two short sentences.",
+      "followup_ids": [],
+      "benchmark": true,
+      "level": "B1",
+      "session_number": 2,
+      "rationale": "present_perfect: no evidence yet; present_continuous: no evidence yet"
+     },
+     "rates_before": {
+      "past_simple": 0.6,
+      "plurals": 0.5,
+      "sv_agreement": 0.6,
+      "question_formation": 0.7,
+      "articles": 0.4
+     },
+     "turns": [
+      {
+       "clean": "Hey Maya! It\u2019s been busy but lovely. I just finished baking a batch of chocolate cupcakes for my Instagram page. The kids are playing in the garden while I water the plants at dawn.",
+       "spoken": "Hey Maya! It\u2019s been busy but lovely. I just finish baking batch of chocolate cupcakes for my Instagram page. The kids are playing in garden while I water the plants at dawn.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "finished",
+         "corrupted": "finish"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a batch",
+         "corrupted": "batch"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the garden",
+         "corrupted": "garden"
+        }
+       ],
+       "reply": "Oh, chocolate cupcakes sound amazing! How many did you bake, and what\u2019s the next flavor you\u2019re thinking of trying?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I made about thirty cupcakes. Next, I\u2019m thinking of a vanilla\u2011with\u2011cardamom cake for a family birthday next week. The kids helped me mix the batter, and it was a fun, messy morning.",
+       "spoken": "I make about thirty cupcakes. Next, I\u2019m thinking of vanilla\u2011with\u2011cardamom cake for a family birthday next week. kids helped me mix the batter, and it was fun, messy morning.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "made",
+         "corrupted": "make"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a vanilla",
+         "corrupted": "vanilla"
+        },
+        {
+         "skill_id": "articles",
+         "original": "The kids",
+         "corrupted": "kids"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a fun",
+         "corrupted": "fun"
+        }
+       ],
+       "reply": "That vanilla\u2011with\u2011cardamom combo sounds perfect for a birthday. Have you ever tried frosting cupcakes right in the garden while the kids are playing? I\u2019m a bit reluctant to bake on a rainy day, but the fresh air makes it worth it. What\u2019s the birthday celebration plan?",
+       "adopted_word": null
+      },
+      {
+       "clean": "The birthday will be at our house, we\u2019ll set up a small table by the window and play Ilaiyaraaja songs while the kids eat cake. I\u2019ll keep the frosting in a cool box, so the kids can decorate while the rain taps on the roof. It\u2019s going to be a cozy, sweet evening.",
+       "spoken": "birthday will be at our house, we\u2019ll set up a small table by the window and play Ilaiyaraaja songs while kids eat cake. I\u2019ll keep frosting in a cool box, so the kids can decorate while the rain taps on roof. It\u2019s going to be a cozy, sweet evening.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "The birthday",
+         "corrupted": "birthday"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the kids",
+         "corrupted": "kids"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the frosting",
+         "corrupted": "frosting"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the roof",
+         "corrupted": "roof"
+        }
+       ],
+       "reply": "That sounds cozy and lovely. Speaking of special days, can you tell me about a trip or a day out you really loved? How did it make you feel?",
+       "adopted_word": null
+      },
+      {
+       "clean": "Last year I went to Mahabalipuram for a weekend. Watching the shore and the ancient rock carvings made me feel calm and grateful. It was a quiet escape from the daily bustle.",
+       "spoken": "Last year I go to Mahabalipuram for weekend. Watching shore and ancient rock carvings made me feel calm and grateful. It was quiet escape from the daily bustle.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "went",
+         "corrupted": "go"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a weekend",
+         "corrupted": "weekend"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the shore",
+         "corrupted": "shore"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the ancient",
+         "corrupted": "ancient"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a quiet",
+         "corrupted": "quiet"
+        }
+       ],
+       "reply": "Mahabalipuram is such a soothing spot; the sea and those timeless carvings really help you unwind. Did you feel a bit overwhelmed by how peaceful it was after the city\u2019s rush?",
+       "adopted_word": null
+      },
+      {
+       "clean": "Yes, it was a little quiet, like a pause from the city noise. I felt so relaxed and thankful for the calmness there. It really helped me recharge for the busy week ahead.",
+       "spoken": "Yes, it was a little quiet, like a pause from the city noise. I feel so relaxed and thankful for calmness there. It really helped me recharge for the busy week ahead.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "felt",
+         "corrupted": "feel"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the calmness",
+         "corrupted": "calmness"
+        }
+       ],
+       "reply": "Sounds like that visit was a quiet escape just when life got hectic. Do you have any other places in mind for a similar recharge?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 177,
+      "errors": 9,
+      "errors_per_100w": 5.08,
+      "target_accuracy": 1.0,
+      "mattr": 0.924,
+      "mean_utterance_len": 35.4,
+      "subordination_rate": 2.8,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [],
+      "target_skills": [
+       "present_continuous",
+       "present_perfect"
+      ],
+      "benchmark": true,
+      "cefr": null
+     },
+     "opener": "Hey! Great to hear your voice. How's your day going?"
+    },
+    {
+     "n": 2,
+     "plan": {
+      "target_skills": [
+       "articles",
+       "stative_continuous"
+      ],
+      "target_words": [
+       "reluctant",
+       "thrilled",
+       "struggle"
+      ],
+      "opener": "Greet them like an old friend and ask how this went: Is planning a birthday celebration at home with a vanilla-with-cardamom cake, Ilaiyaraaja songs, and kid-friendly frosting activities by the window. Keep it to two short sentences.",
+      "followup_ids": [
+       "c506112c-a515-4f4c-9882-a0318920c606"
+      ],
+      "benchmark": false,
+      "level": "B1",
+      "session_number": 3,
+      "rationale": "articles: mastery 0.13 (weak); stative_continuous: no evidence yet"
+     },
+     "rates_before": {
+      "past_simple": 0.582,
+      "plurals": 0.485,
+      "sv_agreement": 0.582,
+      "question_formation": 0.679,
+      "articles": 0.388
+     },
+     "turns": [
+      {
+       "clean": "It\u2019s going great! I finished the vanilla\u2011cardamom cake, and I\u2019m listening to Ilaiyaraaja while frosting it. The kitchen is a bit hectic, but I love how it smells.",
+       "spoken": "It\u2019s going great! I finish vanilla\u2011cardamom cake, and I\u2019m listening to Ilaiyaraaja while frosting it. The kitchen is a bit hectic, but I love how it smells.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "finished",
+         "corrupted": "finish"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the vanilla",
+         "corrupted": "vanilla"
+        }
+       ],
+       "reply": "That sounds amazing, the aroma must be filling the whole house. Ilaiyaraaja really sets the perfect mood. Any other songs you\u2019ve got on repeat while you bake?",
+       "adopted_word": "hectic"
+      },
+      {
+       "clean": "I\u2019m playing \u201cPanchathanthiram\u201d on repeat now. My kids keep humming it while I stir the batter. It makes the whole house feel like a small concert.",
+       "spoken": "I\u2019m playing \u201cPanchathanthiram\u201d on repeat now. My kids keep humming it while I stir the batter. It make the whole house feel like small concert.",
+       "injected": [
+        {
+         "skill_id": "sv_agreement",
+         "original": "It makes",
+         "corrupted": "It make"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a small",
+         "corrupted": "small"
+        }
+       ],
+       "reply": "It must feel like a little concert, especially with \u201cPanchathanthiram\u201d echoing through the kitchen. Do your kids have a favorite part they always sing along to?",
+       "adopted_word": null
+      },
+      {
+       "clean": "They love the drum beats at the start, but the kids usually sing the chorus when I set the cake on the counter. Yesterday I watered the plants and they sang too, so the whole day felt like a mini festival. This week I\u2019m also planning a small Instagram post for the cake launch.",
+       "spoken": "They love drum beats at the start, but the kids usually sing the chorus when I set the cake on counter. Yesterday I watered the plants and they sang too, so whole day felt like a mini festival. This week I\u2019m also planning a small Instagram post for cake launch.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the drum",
+         "corrupted": "drum"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the counter",
+         "corrupted": "counter"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the whole",
+         "corrupted": "whole"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the cake",
+         "corrupted": "cake"
+        }
+       ],
+       "reply": "That mini festival vibe will make the launch feel extra special. Are you a bit reluctant to share it publicly, or are you excited to see how people react?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019m really excited. I can\u2019t wait to see how people react. My husband will post a story tomorrow after the launch.",
+       "spoken": "I\u2019m really excited. I can\u2019t wait to see how people react. My husband will post story tomorrow after the launch.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a story",
+         "corrupted": "story"
+        }
+       ],
+       "reply": "I\u2019m thrilled for you\u2014seeing all those likes and comments will be such a boost. When you finally see the post live, what\u2019s the first reaction you hope to hear from your followers?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I hope they\u2019ll say \u201cYummy!\u201d and ask for the recipe. Maybe a few will request a special order. I can\u2019t wait to read their comments!",
+       "spoken": "I hope they\u2019ll say \u201cYummy!\u201d and ask for the recipe. Maybe a few will request a special order. I can\u2019t wait to read their comments!",
+       "injected": [],
+       "reply": "Sounds like you\u2019ll get a flood of \u201cYummy!\u201d comments and maybe a few special\u2011order requests. It\u2019ll be fun to see how the buzz builds\u2014especially after your husband posts the story tomorrow. Who do you think will be the first to ask for the recipe?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 156,
+      "errors": 5,
+      "errors_per_100w": 3.21,
+      "target_accuracy": 0.0,
+      "mattr": 0.893,
+      "mean_utterance_len": 31.2,
+      "subordination_rate": 2.6,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [
+       "hectic"
+      ],
+      "target_skills": [
+       "articles",
+       "stative_continuous"
+      ],
+      "benchmark": false,
+      "cefr": "B1"
+     },
+     "opener": "Hey! How's the birthday planning going with the vanilla\u2011cardamom cake, Ilaiyaraaja songs, and the frosting fun by the window?"
+    },
+    {
+     "n": 3,
+     "plan": {
+      "target_skills": [
+       "articles",
+       "stative_continuous"
+      ],
+      "target_words": [
+       "reluctant",
+       "struggle",
+       "tempting"
+      ],
+      "opener": "Greet them like an old friend and ask how this went: Husband is posting a launch story tomorrow. Keep it to two short sentences.",
+      "followup_ids": [
+       "54d1b204-b04a-4cc3-bb91-c380b616415c"
+      ],
+      "benchmark": false,
+      "level": "B1",
+      "session_number": 4,
+      "rationale": "articles: mastery 0.09 (weak); stative_continuous: no evidence yet"
+     },
+     "rates_before": {
+      "past_simple": 0.565,
+      "plurals": 0.47,
+      "sv_agreement": 0.565,
+      "question_formation": 0.659,
+      "articles": 0.291
+     },
+     "turns": [
+      {
+       "clean": "It was amazing! I got a lot of messages and a few orders. The kids helped decorate and the whole house smelled of fresh vanilla. My husband said he loved the photos.",
+       "spoken": "It was amazing! I got a lot of messages and a few orders. The kids helped decorate and the whole house smelled of fresh vanilla. My husband said he loved the photos.",
+       "injected": [],
+       "reply": "That\u2019s wonderful! Who was the first person to ask for the vanilla\u2011cardamom recipe?",
+       "adopted_word": null
+      },
+      {
+       "clean": "The first one was my neighbor\u2019s daughter, Priya. She texted me right away, saying she wanted a small birthday cake for her sister. I sent her the recipe and a photo of the cake she\u2019ll bake next week.",
+       "spoken": "The first one was my neighbor\u2019s daughter, Priya. She texted me right away, saying she wanted a small birthday cake for her sister. I send her the recipe and a photo of cake she\u2019ll bake next week.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "sent",
+         "corrupted": "send"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the cake",
+         "corrupted": "cake"
+        }
+       ],
+       "reply": "Sounds like Priya\u2019s already excited\u2014are you feeling a bit reluctant to share your secret ingredients, or is it fun to spread the joy?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019m excited! I shared the recipe with her and gave a tip about the extra cardamom. It feels good to spread the joy, and my kids keep me busy with more baking ideas for the weekend.",
+       "spoken": "I\u2019m excited! I shared recipe with her and gave a tip about extra cardamom. It feels good to spread joy, and my kids keep me busy with more baking ideas for weekend.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the recipe",
+         "corrupted": "recipe"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the extra",
+         "corrupted": "extra"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the joy",
+         "corrupted": "joy"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the weekend",
+         "corrupted": "weekend"
+        }
+       ],
+       "reply": "I love that extra cardamom adds a little spark\u2014any particular flavor you\u2019re thinking of trying next weekend?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019m thinking of trying a mango\u2011cardamom cake next weekend. The kids already suggested adding a touch of rose water. It\u2019s fun to experiment while the house smells of fresh basil from the garden.",
+       "spoken": "I\u2019m thinking of trying mango\u2011cardamom cake next weekend. kids already suggested adding a touch of rose water. It\u2019s fun to experiment while the house smells of fresh basil from garden.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a mango",
+         "corrupted": "mango"
+        },
+        {
+         "skill_id": "articles",
+         "original": "The kids",
+         "corrupted": "kids"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the garden",
+         "corrupted": "garden"
+        }
+       ],
+       "reply": "Mango\u2011cardamom with a hint of rose water sounds amazing, especially with fresh basil in the air. How do the kids usually react when you bring a new flavor to the table?",
+       "adopted_word": null
+      },
+      {
+       "clean": "The kids go wild when I bring something new. They taste a crumb, stare at the color, and immediately ask for a second bite. This week they even suggested adding a splash of rose water to the mango\u2011cardamom mix.",
+       "spoken": "The kids go wild when I bring something new. They taste a crumb, stare at the color, and immediately ask for a second bite. This week they even suggested adding splash of rose water to the mango\u2011cardamom mix.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a splash",
+         "corrupted": "splash"
+        }
+       ],
+       "reply": "That excitement can be a bit of a struggle to keep up with, but it\u2019s so rewarding\u2014do you think you\u2019ll keep the rose water for the next batch or try something entirely different?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 176,
+      "errors": 5,
+      "errors_per_100w": 2.84,
+      "target_accuracy": 0.2,
+      "mattr": 0.912,
+      "mean_utterance_len": 35.2,
+      "subordination_rate": 1.1,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [],
+      "target_skills": [
+       "articles",
+       "stative_continuous"
+      ],
+      "benchmark": false,
+      "cefr": "B1"
+     },
+     "opener": "Hey! How did the Instagram cake launch go after your husband posted the story?"
+    },
+    {
+     "n": 4,
+     "plan": {
+      "target_skills": [
+       "articles",
+       "stative_continuous"
+      ],
+      "target_words": [
+       "reluctant",
+       "tempting",
+       "procrastinate"
+      ],
+      "opener": "Greet them like an old friend and ask how this went: Planning a small Instagram post for cake launch this week. Keep it to two short sentences.",
+      "followup_ids": [
+       "90045af9-7b6d-4b4a-a81f-5a66322bd4ea"
+      ],
+      "benchmark": false,
+      "level": "B1",
+      "session_number": 5,
+      "rationale": "articles: mastery 0.13 (weak); stative_continuous: no evidence yet"
+     },
+     "rates_before": {
+      "past_simple": 0.548,
+      "plurals": 0.456,
+      "sv_agreement": 0.548,
+      "question_formation": 0.639,
+      "articles": 0.218
+     },
+     "turns": [
+      {
+       "clean": "Hi Maya! I just posted the first cake photo this morning. The kitchen smells like vanilla and fresh cherries, and my kids are excited to taste them. I\u2019ll send you the order form by end of day.",
+       "spoken": "Hi Maya! I just posted the first cake photo this morning. The kitchen smells like vanilla and fresh cherries, and my kids are excited to taste them. I\u2019ll send you order form by end of day.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the order",
+         "corrupted": "order"
+        }
+       ],
+       "reply": "That sounds amazing, the cherry vanilla combo must be divine! How are the kids feeling about being little taste\u2011testers?",
+       "adopted_word": null
+      },
+      {
+       "clean": "They are very excited. The little ones already asked for a second bite. I feel a bit overwhelmed but it\u2019s so much fun.",
+       "spoken": "They are very excited. The little ones already asked for a second bite. I feel a bit overwhelmed but it\u2019s so much fun.",
+       "injected": [],
+       "reply": "I can imagine the kitchen buzzing with happy chaos\u2014what does your baking corner look like? Do you ever feel a bit reluctant to pause, even when the kids are begging for more?",
+       "adopted_word": "overwhelmed"
+      },
+      {
+       "clean": "The kitchen is a cozy mess of flour, pans, and a little music player humming Ilaiyaraaja. I feel a bit reluctant to stop mixing when the kids keep asking for another bite, but their smiles make it worth it. Tomorrow I\u2019ll set up a small display in the living room so they can see the finished cakes before they eat them.",
+       "spoken": "The kitchen is a cozy mess of flour, pans, and a little music player humming Ilaiyaraaja. I feel a bit reluctant to stop mixing when kids keep asking for another bite, but their smiles make it worth it. Tomorrow I\u2019ll set up a small display in the living room so they can see the finish cakes before they eat them.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "finished",
+         "corrupted": "finish"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the kids",
+         "corrupted": "kids"
+        }
+       ],
+       "reply": "That cozy, music\u2011filled mess sounds so tempting\u2014like a little bakery in your home. How are you planning to arrange the display, and which cake are you most excited for the kids to see first?",
+       "adopted_word": "reluctant"
+      },
+      {
+       "clean": "I\u2019ll put the cakes on a wooden tray and stack them with a little ribbon. The first cake will be the strawberry\u2011cream one because the kids love the bright color. It looks like a tiny bakery right in the living room.",
+       "spoken": "I\u2019ll put the cakes on a wooden tray and stack them with a little ribbon. The first cake will be the strawberry\u2011cream one because kids love the bright color. It looks like a tiny bakery right in the living room.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the kids",
+         "corrupted": "kids"
+        }
+       ],
+       "reply": "Lovely idea, the ribbon will add such a sweet touch. Did you notice anyone in the neighborhood asking for the recipe right after you posted?",
+       "adopted_word": null
+      },
+      {
+       "clean": "No one asked yet, but I heard a neighbor call asking about the vanilla recipe. I\u2019ll let her know tomorrow. The kids are already planning their next order!",
+       "spoken": "No one asked yet, but I heard a neighbor call asking about the vanilla recipe. I\u2019ll let her know tomorrow. kids are already planning their next order!",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "The kids",
+         "corrupted": "kids"
+        }
+       ],
+       "reply": "Sounds like the vanilla recipe will be a hit\u2014maybe the neighbor will become your next happy customer. I\u2019ve got a few finished cakes on the counter myself, and I keep finding ways not to procrastinate and get them out the door. Who\u2019s the first little one you\u2019ll hand the strawberry\u2011cream slice to?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 192,
+      "errors": 3,
+      "errors_per_100w": 1.56,
+      "target_accuracy": 0.333,
+      "mattr": 0.916,
+      "mean_utterance_len": 38.4,
+      "subordination_rate": 2.1,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [
+       "overwhelmed"
+      ],
+      "target_skills": [
+       "articles",
+       "stative_continuous"
+      ],
+      "benchmark": false,
+      "cefr": "B1"
+     },
+     "opener": "Hey! How's the Instagram cake launch planning coming along?"
+    },
+    {
+     "n": 5,
+     "plan": {
+      "target_skills": [
+       "articles",
+       "stative_continuous"
+      ],
+      "target_words": [
+       "reluctant",
+       "vibe",
+       "frustrating"
+      ],
+      "opener": "Greet them like an old friend and ask how this went: Planning to send the order form by the end of the day. Keep it to two short sentences.",
+      "followup_ids": [
+       "9d0d2e21-7a0d-46b8-a3a5-6b6a229c4d91"
+      ],
+      "benchmark": false,
+      "level": "B1",
+      "session_number": 6,
+      "rationale": "articles: mastery 0.17 (weak); stative_continuous: no evidence yet"
+     },
+     "rates_before": {
+      "past_simple": 0.531,
+      "plurals": 0.443,
+      "sv_agreement": 0.531,
+      "question_formation": 0.62,
+      "articles": 0.164
+     },
+     "turns": [
+      {
+       "clean": "Hey Maya, I sent it this morning. My kids were playing in the garden, so I had to hop on it quickly. Let me know if you need any changes.",
+       "spoken": "Hey Maya, I send it this morning. My kids were playing in garden, so I had to hop on it quickly. Let me know if you need any changes.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "sent",
+         "corrupted": "send"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the garden",
+         "corrupted": "garden"
+        }
+       ],
+       "reply": "Great, I\u2019ve got it\u2014thanks! How did the garden playtime go? Anything fun the kids came up with while you were working?",
+       "adopted_word": null
+      },
+      {
+       "clean": "The kids made a big mess of the garden, but they were thrilled to splash in the puddles after the rain. I laughed when they tried to turn the lawn into a mud kitchen. It was a fun, chaotic afternoon before I finished the order.",
+       "spoken": "kids make big mess of garden, but they were thrilled to splash in the puddles after rain. I laughed when they try to turn the lawn into a mud kitchen. It was fun, chaotic afternoon before I finish the order.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "made",
+         "corrupted": "make"
+        },
+        {
+         "skill_id": "past_simple",
+         "original": "tried",
+         "corrupted": "try"
+        },
+        {
+         "skill_id": "past_simple",
+         "original": "finished",
+         "corrupted": "finish"
+        },
+        {
+         "skill_id": "articles",
+         "original": "The kids",
+         "corrupted": "kids"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a big",
+         "corrupted": "big"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the garden",
+         "corrupted": "garden"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the rain",
+         "corrupted": "rain"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a fun",
+         "corrupted": "fun"
+        }
+       ],
+       "reply": "Sounds like a perfect mix of fun and chaos! I was a bit reluctant to dive into the mud kitchen myself, but I can imagine the laughter. How\u2019s the order coming along\u2014any tweaks you\u2019re thinking about?",
+       "adopted_word": "thrilled"
+      },
+      {
+       "clean": "The order is almost finished; I just need to add the final price list and a few extra cake options. I\u2019ll send the PDF by noon and we can tweak any details together. The kids are still in the garden, and I\u2019m humming Ilaiyaraaja while I bake.",
+       "spoken": "order is almost finish; I just need to add the final price list and a few extra cake options. I\u2019ll send the PDF by noon and we can tweak any details together. The kids are still in the garden, and I\u2019m humming Ilaiyaraaja while I bake.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "finished",
+         "corrupted": "finish"
+        },
+        {
+         "skill_id": "articles",
+         "original": "The order",
+         "corrupted": "order"
+        }
+       ],
+       "reply": "Nice vibe, juggling the price list and those extra cake ideas. Which Ilaiyaraaja track are you humming while the kids take over the garden?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019m humming \u201cPudhu Vazhvu\u201d right now. The kids are still busy making a mini mud kitchen, so I\u2019m trying to finish the price list before lunch. It\u2019s a little struggle, but the kitchen smells like fresh batter and rain.",
+       "spoken": "I\u2019m humming \u201cPudhu Vazhvu\u201d right now. kids are still busy making a mini mud kitchen, so I\u2019m trying to finish the price list before lunch. It\u2019s a little struggle, but the kitchen smells like fresh batter and rain.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "The kids",
+         "corrupted": "kids"
+        }
+       ],
+       "reply": "That fresh batter mixing with rain sounds both sweet and a bit frustrating\u2014good luck getting the price list almost finished before lunch! Do you think you\u2019ll add any new flavors after today\u2019s bake?",
+       "adopted_word": "struggle"
+      },
+      {
+       "clean": "Sounds tempting to add a mango\u2011lime swirl this week. I\u2019ll test it in tomorrow\u2019s batch and see how the kids react. The kitchen feels like a cozy storm right now!",
+       "spoken": "Sounds tempting to add mango\u2011lime swirl this week. I\u2019ll test it in tomorrow\u2019s batch and see how the kids react. The kitchen feels like cozy storm right now!",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a mango",
+         "corrupted": "mango"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a cozy",
+         "corrupted": "cozy"
+        }
+       ],
+       "reply": "Mango\u2011lime swirl sounds amazing; I\u2019ll probably try a tiny batch myself before I finished the day\u2019s chores. How do you think the kids will react to that tangy twist?",
+       "adopted_word": "tempting"
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 189,
+      "errors": 11,
+      "errors_per_100w": 5.82,
+      "target_accuracy": 0.0,
+      "mattr": 0.908,
+      "mean_utterance_len": 37.8,
+      "subordination_rate": 2.6,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [
+       "struggle",
+       "thrilled",
+       "tempting"
+      ],
+      "target_skills": [
+       "articles",
+       "stative_continuous"
+      ],
+      "benchmark": false,
+      "cefr": "B1"
+     },
+     "opener": "Hey! Did you get a chance to send that order form today?"
+    }
+   ]
+  }
+ }
+}

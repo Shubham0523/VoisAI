@@ -1,0 +1,44 @@
+[project]
+name = "voisai"
+version = "0.1.0"
+description = "VoisAI: an AI friend that quietly teaches English (voice agent + tutor brain + API)"
+authors = [
+    { name = "Shubham Arora", email = "95907789+Shubham0523@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "asyncpg>=0.32.0",
+    "fastapi>=0.165.0",
+    "fastembed>=0.9.1",
+    "httpx>=0.28.1",
+    "livekit-agents[deepgram,openai,silero,turn-detector]>=1.8.13",
+    "livekit-api>=1.2.3",
+    "pgvector>=0.5.1",
+    "pydantic-settings>=2.16.3",
+    "python-dotenv>=1.2.4",
+    "sqlalchemy[asyncio]>=2.1.9",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.5.0",
+    "ruff>=0.17.6",
+]
+
+[tool.uv.build-backend]
+module-root = ""
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
