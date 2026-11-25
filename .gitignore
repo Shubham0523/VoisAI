@@ -13,3 +13,4 @@ out/
 # local / generated
 *.log
 .claude/settings.local.json
+.vercel
