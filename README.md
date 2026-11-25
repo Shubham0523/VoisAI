@@ -4,6 +4,13 @@ An AI friend you call every day. It feels like a chat with a friend, and underne
 works out your English level, remembers your life, and steers each conversation toward what
 you need to practise next. It can also show, with evidence, whether you're improving.
 
+**Live demo:** https://voisai-eight.vercel.app (allow the microphone, Chrome works best)
+· growth page: [/progress](https://voisai-eight.vercel.app/progress)
+· simulation results: [/eval](https://voisai-eight.vercel.app/eval)
+
+Everything runs on free tiers: Vercel, Render, LiveKit Cloud, Neon, Groq, Google AI Studio and
+Deepgram's free credit. Embeddings run locally.
+
 ## The idea: two systems pretending to be one
 
 | | **Friend** (real-time) | **Tutor** (background) |
@@ -46,7 +53,7 @@ you need to practise next. It can also show, with evidence, whether you're impro
 
 ## How we know it works: simulated learners
 
-You can't show weeks of learning in a 4-day build, so `backend/sim/` runs **simulated learners
+You can't show weeks of learning in a short take-home build, so `backend/sim/` runs **simulated learners
 through the real pipeline** (the same `FriendAgent`, Tutor and DB code as a voice call, in text
 mode):
 
@@ -69,7 +76,48 @@ What the simulation then measures is **our system**, against ground truth:
 
 Results are on the `/eval` page; raw output is in `backend/sim/results/*.json`.
 
-<!-- RESULTS -->
+## Results
+
+Cloud run: 2 simulated learners × 5 chats × 5 turns, Friend on Groq `gpt-oss-120b`, Analyst on
+Gemini 3.5 Flash-Lite, learners on Groq `gpt-oss-20b`.
+
+| | Rahul (Hindi L1) | Priya (Tamil L1) |
+|---|---|---|
+| Analyst precision on errors | **0.90** | **0.91** |
+| Analyst recall on errors | 0.48 | 0.53 |
+| Chats whose plan targeted a planted weakness | **80%** | **80%** |
+| Teacher-mode leaks in Friend replies | **0%** | **0%** |
+| Friend modelled the correct form within 2 replies of an error | 17% | 23% |
+| True planted error rate, chat 1 → chat 5 | 57.5% → 37.8% | 56.0% → 45.8% |
+
+**Planner vs random targets (control).** Same learner and seed, but each chat targets random
+skills. After 3 chats Rahul's planted error rate was **44.4% with the planner vs 48.8% with random
+targets**, and the planner aimed at a real weakness in 80% of chats vs 50%. Gemini's free daily
+quota cut the control short (Rahul 4 chats, Priya none), so treat this as an early signal, not
+proof. `/eval` compares the two runs at equal chat counts.
+
+How to read it: precision is the number that protects trust (a wrong "you made a mistake" is the
+worst failure), so the Analyst is tuned to be sure before it flags anything, and recall is where
+the next gains are. The learning itself is simulated (see above); what the run measures is
+whether our system notices, targets and tracks the planted weaknesses.
+
+### Known issues
+
+- **Recall is about half.** The Analyst misses roughly one planted error in two. Next step:
+  few-shot examples per skill and batching 3–4 turns so it sees more context.
+- **Too few recasts.** The Friend rarely models the correct form right after an error. The 0.8
+  confidence gate on recasts is likely too strict; 0.7 is the next experiment.
+- **The Planner can fixate.** After chat 2 it steered Priya toward `stative_continuous` every
+  time. Her native language defaults to Hindi, so the L1 error priors are wrong for a Tamil
+  speaker. L1 should be asked during onboarding, and a skill targeted twice without new evidence
+  should rest.
+- **Mastery leans pessimistic.** Correct uses are logged less reliably than errors. Counting
+  correct uses deterministically from the obligatory contexts the rules already detect would fix it.
+- **Free-tier ceilings.** Gemini's daily quota can leave turns unanalysed under load (the
+  simulator detects this and stops a learner rather than report skewed scores), and Groq's
+  8k tokens/minute limits concurrent callers. Fine for a demo, not for real traffic.
+- **Fluency on real speech is unverified.** Fluency metrics come from STT word timings and are
+  unit-tested, but the simulator runs in text, so they haven't been validated on audio.
 
 ## Design decisions
 
@@ -180,19 +228,27 @@ One repo, three hosts, each pointed at its own folder. A push redeploys only wha
 | Voice agent (`backend/`, default role) | LiveKit Cloud agent hosting | same `backend/Dockerfile`; `lk agent create` from `backend/` |
 | Postgres + pgvector | Neon (recommended) or Supabase | paste its URL as `DATABASE_URL`; `postgres://…?sslmode=require` is converted automatically |
 
+Live deployment: Vercel (frontend), Render Singapore (API), LiveKit Cloud us-east (agent, next to
+the US-hosted model providers; learner audio still enters LiveKit at the nearest edge), Neon (database).
+
 Why the agent isn't on Render: the worker holds a live WebSocket to LiveKit and runs VAD, turn detection
 and embeddings on the audio. It idles at ~1.5 GB RAM; Render's free instance is 512 MB / 0.1 CPU and
-sleeps after 15 idle minutes. The API idles at ~115 MB and is fine there. The frontend pings
-`/api/health` on page load so a sleeping API is awake by the time you press "Start talking".
+sleeps after 15 idle minutes. The API idles at ~115 MB and is fine there. To stop it sleeping, the
+always-on agent pings `KEEPALIVE_URL` (the API's `/api/health`) every 10 minutes; the health check
+doesn't touch the database, so Neon still scales to zero. The frontend also pings `/api/health`
+on page load, in case the API is waking up.
 
 Environment variables:
 
 - **Render (API):** `DATABASE_URL`, `LIVEKIT_URL`, `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET`,
-  `API_CORS_ORIGINS` (JSON list, e.g. `["https://voisai.vercel.app"]`), optional `API_CORS_ORIGIN_REGEX`.
-- **LiveKit Cloud (agent):** everything in `.env.example` except the `SIM_*` keys
-  (`lk agent create --secrets-file ../.env` from `backend/`; LiveKit injects its own URL/keys).
+  `API_CORS_ORIGINS` (JSON list, e.g. `["http://localhost:3000"]`), `API_CORS_ORIGIN_REGEX`
+  (e.g. `https://.*\.vercel\.app`).
+- **LiveKit Cloud (agent):** `DEEPGRAM_API_KEY`, `FRIEND_API_KEY`, `ANALYST_API_KEY`, `DATABASE_URL`,
+  `KEEPALIVE_URL`, passed as a secrets file: `lk agent create --region us-east --secrets-file <file>`
+  from `backend/`. LiveKit injects its own URL and keys. Later code changes: `lk agent deploy`.
 - **Vercel:** `NEXT_PUBLIC_API_URL`.
 
-Use the database's *direct* (non-pooled) URL: asyncpg's prepared statements don't survive PgBouncer
-transaction pooling. Check the image locally with
+Direct or pooled database URLs both work: for pooler hosts (Neon `-pooler`, Supabase `:6543`) the
+engine turns off asyncpg's statement caches, which transaction pooling would break. Check the image
+locally with
 `docker build -t voisai-backend backend && docker run -e SERVICE=api -e PORT=8000 -p 8000:8000 --env-file .env voisai-backend`.

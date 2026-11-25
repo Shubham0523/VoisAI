@@ -30,14 +30,14 @@ chat:             ## text chat with Maya in the terminal (same pipeline, no audi
 	cd backend && uv run python -m voisai.agent.textchat
 
 sim:              ## simulated learners + random-planner control (cloud keys from .env)
-	cd backend && uv run python -m sim.run --sessions 6 --turns 5 --tag main
-	cd backend && uv run python -m sim.run --personas sim-rahul --sessions 6 --turns 5 --planner random --tag control
+	cd backend && uv run python -m sim.run --sessions 5 --turns 5 --tag main
+	cd backend && uv run python -m sim.run --personas sim-rahul --sessions 5 --turns 5 --planner random --tag control
 
 LOCAL = set -a; . ./.env.local-llm; set +a;
 
 sim-local:        ## same, fully offline on local Ollama (qwen3.5:9b)
-	cd backend && $(LOCAL) uv run python -m sim.run --sessions 6 --turns 5 --tag main
-	cd backend && $(LOCAL) uv run python -m sim.run --personas sim-rahul --sessions 6 --turns 5 --planner random --tag control
+	cd backend && $(LOCAL) uv run python -m sim.run --sessions 5 --turns 5 --tag main
+	cd backend && $(LOCAL) uv run python -m sim.run --personas sim-rahul --sessions 5 --turns 5 --planner random --tag control
 
 chat-local:       ## terminal chat with Maya on local Ollama
 	cd backend && $(LOCAL) uv run python -m voisai.agent.textchat
