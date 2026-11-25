@@ -26,6 +26,9 @@ async def list_users() -> list[dict]:
         rows = await s.execute(
             select(User, func.count(ConversationSession.id))
             .join(ConversationSession, ConversationSession.user_id == User.id, isouter=True)
+            # Public demo, no login: only simulated learners are listed. A real visitor reaches
+            # their own dashboard via the unguessable id in their browser, never via this list.
+            .where(User.is_simulated.is_(True))
             .group_by(User.id)
             .order_by(User.is_simulated, User.created_at.desc())
         )

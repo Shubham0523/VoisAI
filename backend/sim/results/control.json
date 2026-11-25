@@ -1,0 +1,1490 @@
+{
+ "tag": "control",
+ "planner": "random",
+ "sessions": 5,
+ "turns": 5,
+ "learners": {
+  "sim-rahul-control": {
+   "persona": {
+    "id": "sim-rahul",
+    "name": "Rahul",
+    "l1": "Hindi",
+    "level": "B1",
+    "bio": "26, software tester at an IT company in Pune, from Indore. Lives with two flatmates, plays cricket on Sundays, preparing for job interviews at bigger companies, misses his mother's cooking.",
+    "error_rates": {
+     "articles": 0.6,
+     "past_simple": 0.5,
+     "stative_continuous": 0.7,
+     "prepositions_time_place": 0.5
+    },
+    "style": "friendly, a bit shy, gives medium-length answers",
+    "known_facts": []
+   },
+   "score": {
+    "analyst": {
+     "overall": {
+      "tp": 32,
+      "fp": 3,
+      "fn": 31,
+      "precision": 0.914,
+      "recall": 0.508
+     },
+     "per_skill": {
+      "articles": {
+       "tp": 26,
+       "fp": 0,
+       "fn": 28,
+       "precision": 1.0,
+       "recall": 0.481
+      },
+      "past_irregular": {
+       "tp": 0,
+       "fp": 2,
+       "fn": 0,
+       "precision": 0.0,
+       "recall": null
+      },
+      "past_simple": {
+       "tp": 3,
+       "fp": 0,
+       "fn": 3,
+       "precision": 1.0,
+       "recall": 0.5
+      },
+      "prepositions_time_place": {
+       "tp": 3,
+       "fp": 0,
+       "fn": 0,
+       "precision": 1.0,
+       "recall": 1.0
+      },
+      "sv_agreement": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "precision": 0.0,
+       "recall": null
+      }
+     }
+    },
+    "planner": {
+     "sessions_targeting_a_planted_skill": 0.5,
+     "planted_share_of_targets": 0.25
+    },
+    "friend": {
+     "replies": 20,
+     "teacher_leak_rate": 0.0,
+     "leaks": [],
+     "recast_rate": 0.0,
+     "modeled_within_2_rate": 0.333
+    }
+   },
+   "sessions": [
+    {
+     "n": 1,
+     "plan": {
+      "target_skills": [
+       "modals_advice",
+       "stative_continuous"
+      ],
+      "target_words": [
+       "reluctant",
+       "overwhelmed",
+       "hectic"
+      ],
+      "opener": "Greet them warmly like a friend you talk to every day and ask how their day is going. Two short sentences.",
+      "followup_ids": [],
+      "benchmark": true,
+      "level": "B1",
+      "session_number": 2,
+      "rationale": "control: random targets"
+     },
+     "rates_before": {
+      "articles": 0.6,
+      "past_simple": 0.5,
+      "stative_continuous": 0.7,
+      "prepositions_time_place": 0.5
+     },
+     "turns": [
+      {
+       "clean": "Hi Maya, it's going okay. I spent most of the day testing a new feature at work, and after lunch I went to the park for a quick jog. I also started preparing for a big interview next week.",
+       "spoken": "Hi Maya, it's going okay. I spend most of day testing new feature in work, and after lunch I go to park for quick jog. I also started preparing for big interview next week.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "spent",
+         "corrupted": "spend"
+        },
+        {
+         "skill_id": "past_simple",
+         "original": "went",
+         "corrupted": "go"
+        },
+        {
+         "skill_id": "prepositions_time_place",
+         "original": "at work",
+         "corrupted": "in work"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the day",
+         "corrupted": "day"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a new",
+         "corrupted": "new"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the park",
+         "corrupted": "park"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a quick",
+         "corrupted": "quick"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a big",
+         "corrupted": "big"
+        }
+       ],
+       "reply": "Sounds like a packed day\u2014testing a new feature, a quick jog in the park, and interview prep all in one. How are you feeling about the interview next week?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I feel a bit nervous but also excited. I\u2019ve been practicing coding questions and reviewing the company\u2019s projects, so I think I\u2019m getting better each day. It\u2019s been a busy week, but I\u2019m hoping to finish the interview prep by the weekend.",
+       "spoken": "I feel a bit nervous but also excited. I\u2019ve been practicing coding questions and reviewing company\u2019s projects, so I think I\u2019m getting better each day. It\u2019s been busy week, but I\u2019m hoping to finish interview prep by weekend.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the company",
+         "corrupted": "company"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a busy",
+         "corrupted": "busy"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the interview",
+         "corrupted": "interview"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the weekend",
+         "corrupted": "weekend"
+        }
+       ],
+       "reply": "That mix of nerves and excitement usually means you\u2019re on the right track. What kind of projects does the company focus on that you\u2019re most interested in?",
+       "adopted_word": null
+      },
+      {
+       "clean": "They\u2019re working on cloud\u2011native microservices and AI\u2011driven analytics. I\u2019m most excited about the data pipeline part because I\u2019ve built a few small ETL jobs in my spare time. It feels like a good match for the skills I\u2019ve been practicing.",
+       "spoken": "They\u2019re working on cloud\u2011native microservices and AI\u2011driven analytics. I\u2019m most excited about the data pipeline part because I\u2019ve built a few small ETL jobs in my spare time. It feels like good match for skills I\u2019ve been practicing.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a good",
+         "corrupted": "good"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the skills",
+         "corrupted": "skills"
+        }
+       ],
+       "reply": "It\u2019s been a busy week for me too, juggling a few things at home. Speaking of good matches, have you ever taken a trip or spent a day out that felt just as rewarding as working on that data pipeline? How did it go?",
+       "adopted_word": null
+      },
+      {
+       "clean": "Yes, last month I went to the hill station of Mahabaleshwar with a couple of friends. We spent a day hiking, tasted local strawberries, and it felt refreshing to step away from screens. It was a nice balance to the long hours I\u2019ve been putting into coding.",
+       "spoken": "Yes, last month I went to hill station of Mahabaleshwar with a couple of friends. We spent day hiking, tasted local strawberries, and it felt refreshing to step away from screens. It was a nice balance to long hours I\u2019ve been putting into coding.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the hill",
+         "corrupted": "hill"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a day",
+         "corrupted": "day"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the long",
+         "corrupted": "long"
+        }
+       ],
+       "reply": "I get that feeling\u2014sometimes I\u2019m reluctant to leave the laptop even when the weather\u2019s perfect. What\u2019s one thing you\u2019d love to bring back from that hill\u2011station vibe into your everyday routine?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019d love to bring the calm walk with the view into my routine\u2014maybe a 15\u2011minute stretch break each morning before the test scripts start. It would help me reset the mind before the next coding task. Plus, it\u2019s a small reminder that a good day isn\u2019t just about code.",
+       "spoken": "I\u2019d love to bring calm walk with view into my routine\u2014maybe a 15\u2011minute stretch break each morning before test scripts start. It would help me reset the mind before next coding task. Plus, it\u2019s small reminder that a good day isn\u2019t just about code.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the calm",
+         "corrupted": "calm"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the view",
+         "corrupted": "view"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the test",
+         "corrupted": "test"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the next",
+         "corrupted": "next"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a small",
+         "corrupted": "small"
+        }
+       ],
+       "reply": "I totally get that; a quick stretch with a view can feel like you\u2019ve spent a day hiking even in a tiny balcony. Do you think setting that calm walk will keep you from feeling overwhelmed when the next sprint rolls in?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 214,
+      "errors": 12,
+      "errors_per_100w": 5.61,
+      "target_accuracy": null,
+      "mattr": 0.926,
+      "mean_utterance_len": 42.8,
+      "subordination_rate": 1.4,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [],
+      "target_skills": [
+       "modals_advice",
+       "stative_continuous"
+      ],
+      "benchmark": true,
+      "cefr": null
+     },
+     "opener": "Hey! How's your day going so far?"
+    },
+    {
+     "n": 2,
+     "plan": {
+      "target_skills": [
+       "reported_speech",
+       "present_perfect"
+      ],
+      "target_words": [
+       "reluctant",
+       "hectic",
+       "thrilled"
+      ],
+      "opener": "Greet them warmly like a friend you talk to every day and ask how their day is going. Two short sentences.",
+      "followup_ids": [],
+      "benchmark": false,
+      "level": "B1",
+      "session_number": 3,
+      "rationale": "control: random targets"
+     },
+     "rates_before": {
+      "articles": 0.582,
+      "past_simple": 0.485,
+      "stative_continuous": 0.525,
+      "prepositions_time_place": 0.485
+     },
+     "turns": [
+      {
+       "clean": "Hey Maya, it\u2019s going okay. I\u2019m still stuck in the office, testing some new software, and my flatmates and I are trying to finish a big project by Friday. I\u2019ll probably play cricket this Sunday to unwind.",
+       "spoken": "Hey Maya, it\u2019s going okay. I\u2019m still stuck in office, testing some new software, and my flatmates and I are trying to finish big project by Friday. I\u2019ll probably play cricket this Sunday to unwind.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the office",
+         "corrupted": "office"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a big",
+         "corrupted": "big"
+        }
+       ],
+       "reply": "Testing can be a marathon, huh? Good luck wrapping it up by Friday. Cricket sounds perfect for a break\u2014who's in your team?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019m playing with a couple of my teammates from the office\u2014just the usual mix of engineers and a couple of designers. I\u2019m a bit reluctant to leave the desk early, but I\u2019m looking forward to a quiet match after the crunch week. The last time we played was on Sunday, but I\u2019ll be back in Pune for a weekend of interviews this Friday.",
+       "spoken": "I\u2019m playing with couple of my teammates from office\u2014just the usual mix of engineers and couple of designers. I\u2019m a bit reluctant to leave desk early, but I\u2019m looking forward to a quiet match after the crunch week. last time we play was on Sunday, but I\u2019ll be back in Pune for weekend of interviews this Friday.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "played",
+         "corrupted": "play"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a couple",
+         "corrupted": "couple"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the office",
+         "corrupted": "office"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a couple",
+         "corrupted": "couple"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the desk",
+         "corrupted": "desk"
+        },
+        {
+         "skill_id": "articles",
+         "original": "The last",
+         "corrupted": "last"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a weekend",
+         "corrupted": "weekend"
+        }
+       ],
+       "reply": "Sounds like a solid plan\u2014maybe the match will give you the boost to finish that big project on time. How are the interview prep sessions going, any particular topic you're focusing on?",
+       "adopted_word": "reluctant"
+      },
+      {
+       "clean": "Thanks Maya, the prep is going okay. I\u2019m mainly focusing on data structures and API testing questions. I\u2019ll try to review the mock interview notes before I head out for the weekend interviews.",
+       "spoken": "Thanks Maya, the prep is going okay. I\u2019m mainly focusing on data structures and API testing questions. I\u2019ll try to review the mock interview notes before I head out for weekend interviews.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the weekend",
+         "corrupted": "weekend"
+        }
+       ],
+       "reply": "Nice, a solid review of those notes should help you feel confident. Are you planning any quick brain breaks before the interviews start?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019m taking short walks around the campus to clear my head, and I\u2019ll also do a quick review of my interview notes before the day starts. It helps me stay relaxed and focused.",
+       "spoken": "I\u2019m taking short walks around campus to clear my head, and I\u2019ll also do quick review of my interview notes before the day starts. It helps me stay relaxed and focused.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the campus",
+         "corrupted": "campus"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a quick",
+         "corrupted": "quick"
+        }
+       ],
+       "reply": "That sounds like a good routine. Have you ever tried pairing a short stretch with your campus walks to keep the energy up? I remember the last time we played cricket, we all felt a bit reluctant to stop early, but the quick warm\u2011up afterward kept us sharp. What\u2019s the one topic you\u2019d like to nail down before the interview day?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I think I\u2019ll focus on understanding REST API design and edge\u2011case handling; that\u2019s the one topic that makes me feel a bit overwhelmed if I skip it. In the meantime, I\u2019ll keep walking around the campus and do a short stretch to stay sharp. This week\u2019s project deadline is tight, so every bit of calm helps.",
+       "spoken": "I think I\u2019ll focus on understanding REST API design and edge\u2011case handling; that\u2019s one topic that makes me feel a bit overwhelmed if I skip it. In meantime, I\u2019ll keep walking around the campus and do a short stretch to stay sharp. This week\u2019s project deadline is tight, so every bit of calm helps.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the one",
+         "corrupted": "one"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the meantime",
+         "corrupted": "meantime"
+        }
+       ],
+       "reply": "Got it, REST design can get hectic when you dive into all those edge cases. I\u2019ll also do a quick review of my own notes on error handling, just in case it sparks an idea for you. Besides the walks and stretches, do you have a favorite way to unwind after a long coding session?",
+       "adopted_word": "overwhelmed"
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 226,
+      "errors": 7,
+      "errors_per_100w": 3.1,
+      "target_accuracy": null,
+      "mattr": 0.922,
+      "mean_utterance_len": 45.2,
+      "subordination_rate": 1.8,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [
+       "reluctant",
+       "overwhelmed"
+      ],
+      "target_skills": [
+       "present_perfect",
+       "reported_speech"
+      ],
+      "benchmark": false,
+      "cefr": "B1"
+     },
+     "opener": "Hey! How's your day going so far?"
+    },
+    {
+     "n": 3,
+     "plan": {
+      "target_skills": [
+       "past_perfect",
+       "past_irregular"
+      ],
+      "target_words": [
+       "hectic",
+       "thrilled",
+       "struggle"
+      ],
+      "opener": "Greet them like an old friend and ask how this went: Plans to play cricket this Sunday to unwind. Keep it to two short sentences.",
+      "followup_ids": [
+       "6bc40c21-79c1-48ba-babb-2fa55d190a3a"
+      ],
+      "benchmark": false,
+      "level": "B1",
+      "session_number": 4,
+      "rationale": "control: random targets"
+     },
+     "rates_before": {
+      "articles": 0.565,
+      "past_simple": 0.47,
+      "stative_continuous": 0.509,
+      "prepositions_time_place": 0.47
+     },
+     "turns": [
+      {
+       "clean": "Hey Maya! Things are going fine, thanks. I\u2019m still up for cricket this Sunday, looking forward to it. Also, I\u2019ve got a big interview next week, so I\u2019m a bit nervous but excited.",
+       "spoken": "Hey Maya! Things are going fine, thanks. I\u2019m still up for cricket this Sunday, looking forward to it. Also, I\u2019ve got big interview next week, so I\u2019m a bit nervous but excited.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a big",
+         "corrupted": "big"
+        }
+       ],
+       "reply": "That\u2019s great\u2014cricket will be a perfect break before the interview. I\u2019m sure your prep on those microservices and AI analytics will shine through. How are you feeling about the toughest part of the interview?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I think the toughest part will be the system design questions, especially the one about scaling a real\u2011time analytics platform. I've been sketching out a few architectures, but I still feel a little unsure about the trade\u2011offs. The cricket game should help clear my head before that.",
+       "spoken": "I think the toughest part will be the system design questions, especially one about scaling a real\u2011time analytics platform. I've been sketching out a few architectures, but I still feel a little unsure about the trade\u2011offs. cricket game should help clear my head before that.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the one",
+         "corrupted": "one"
+        },
+        {
+         "skill_id": "articles",
+         "original": "The cricket",
+         "corrupted": "cricket"
+        }
+       ],
+       "reply": "Sounds like a solid plan\u2014designing a real\u2011time analytics platform can get pretty hectic with all the scaling choices. Maybe focus on the bottleneck you\u2019d tackle first and why. Which part of the design are you most curious about refining?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I think the biggest concern is handling the data ingestion pipeline and keeping latency low. I\u2019ll focus on choosing the right messaging system and partition strategy first, then look at the caching layer. It feels like the right balance between speed and cost.",
+       "spoken": "I think biggest concern is handling the data ingestion pipeline and keeping latency low. I\u2019ll focus on choosing the right messaging system and partition strategy first, then look at the caching layer. It feels like the right balance between speed and cost.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the biggest",
+         "corrupted": "biggest"
+        }
+       ],
+       "reply": "That makes sense, picking the right messaging and partitioning will really keep things snappy. Have you tried any specific tools yet, or are you still weighing the options?",
+       "adopted_word": null
+      },
+      {
+       "clean": "Yeah, I\u2019ve looked at Kafka and Pulsar; Kafka feels more stable for our use case, but Pulsar\u2019s multi\u2011tenant model is tempting. I\u2019ll try to set up a small prototype with Kafka first and see how the latency looks.",
+       "spoken": "Yeah, I\u2019ve looked at Kafka and Pulsar; Kafka feels more stable for our use case, but Pulsar\u2019s multi\u2011tenant model is tempting. I\u2019ll try to set up small prototype with Kafka first and see how the latency looks.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a small",
+         "corrupted": "small"
+        }
+       ],
+       "reply": "I\u2019m thrilled you\u2019re diving into a Kafka prototype\u2014it\u2019ll give you clear numbers fast. By the way, can you tell me about a time when something went wrong in a project or a test, and how you managed to get it back on track?",
+       "adopted_word": null
+      },
+      {
+       "clean": "Sure, last month we had a regression bug that caused our test suite to fail 30% of the time. I first isolated the failing test, then checked the logs and saw a flaky network call. I added a retry wrapper and a mock for the external service, which brought the suite back to 0% failures. It was a hectic week, but we got it sorted before the release deadline.",
+       "spoken": "Sure, last month we had regression bug that caused our test suite to fail 30% of the time. I first isolated failing test, then checked logs and see flaky network call. I added a retry wrapper and mock for external service, which bring suite back to 0% failures. It was a hectic week, but we get it sorted before the release deadline.",
+       "injected": [
+        {
+         "skill_id": "past_simple",
+         "original": "saw",
+         "corrupted": "see"
+        },
+        {
+         "skill_id": "past_simple",
+         "original": "brought",
+         "corrupted": "bring"
+        },
+        {
+         "skill_id": "past_simple",
+         "original": "got",
+         "corrupted": "get"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a regression",
+         "corrupted": "regression"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the failing",
+         "corrupted": "failing"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the logs",
+         "corrupted": "logs"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a flaky",
+         "corrupted": "flaky"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a mock",
+         "corrupted": "mock"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the external",
+         "corrupted": "external"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the suite",
+         "corrupted": "suite"
+        }
+       ],
+       "reply": "Sounds like you really struggled with that flaky network call, but the retry wrapper and mock fixed it nicely. How did fixing that bug affect the team\u2019s confidence going into the release?",
+       "adopted_word": "hectic"
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 226,
+      "errors": 9,
+      "errors_per_100w": 3.98,
+      "target_accuracy": 0.0,
+      "mattr": 0.933,
+      "mean_utterance_len": 45.2,
+      "subordination_rate": 1.8,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [
+       "hectic"
+      ],
+      "target_skills": [
+       "past_irregular",
+       "past_perfect"
+      ],
+      "benchmark": false,
+      "cefr": "B1"
+     },
+     "opener": "Hey! How's everything, and are you still up for playing cricket this Sunday to unwind?"
+    },
+    {
+     "n": 4,
+     "plan": {
+      "target_skills": [
+       "prepositions_time_place",
+       "past_continuous"
+      ],
+      "target_words": [
+       "thrilled",
+       "tempting",
+       "procrastinate"
+      ],
+      "opener": "Greet them like an old friend and ask how this went: Working on a tight project deadline this week. Keep it to two short sentences.",
+      "followup_ids": [
+       "da25adc6-7a4b-4589-9e44-8d6fe94fd2e1"
+      ],
+      "benchmark": false,
+      "level": "B1",
+      "session_number": 5,
+      "rationale": "control: random targets"
+     },
+     "rates_before": {
+      "articles": 0.548,
+      "past_simple": 0.456,
+      "stative_continuous": 0.494,
+      "prepositions_time_place": 0.456
+     },
+     "turns": [
+      {
+       "clean": "Hey Maya, it\u2019s pretty hectic this week. I\u2019ve been spending most of my days testing the new release and fixing bugs before the deadline. I\u2019m hoping to wrap it up by Friday and maybe take a short break next weekend.",
+       "spoken": "Hey Maya, it\u2019s pretty hectic this week. I\u2019ve been spending most of my days testing new release and fixing bugs before deadline. I\u2019m hoping to wrap it up by Friday and maybe take short break next weekend.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the new",
+         "corrupted": "new"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the deadline",
+         "corrupted": "deadline"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a short",
+         "corrupted": "short"
+        }
+       ],
+       "reply": "Sounds intense, but good you\u2019ve got that Friday target in sight. Got any plans for a quick unwind once the release is live?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019ll probably just head home, cook a quick meal, and watch a few cricket matches on TV. It\u2019s a good way to relax after the testing grind. Also looking forward to my mother\u2019s cooking next week.",
+       "spoken": "I\u2019ll probably just head home, cook a quick meal, and watch a few cricket matches on TV. It\u2019s good way to relax after testing grind. Also looking forward to my mother\u2019s cooking next week.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a good",
+         "corrupted": "good"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the testing",
+         "corrupted": "testing"
+        }
+       ],
+       "reply": "That sounds perfect\u2014nothing beats a home\u2011cooked meal and some cricket. Are you thrilled about trying your mom\u2019s dishes next week? And when do you usually catch up with friends for a short break after work?",
+       "adopted_word": null
+      },
+      {
+       "clean": "Yes, I\u2019m really thrilled to try my mom\u2019s cooking next week. I usually catch up with friends after work on Wednesdays and Thursdays when I have a little free time. This week I\u2019ll just relax at home and watch cricket after the release is live.",
+       "spoken": "Yes, I\u2019m really thrilled to try my mom\u2019s cooking next week. I usually catch up with friends after work on Wednesdays and Thursdays when I have a little free time. This week I\u2019ll just relax in home and watch cricket after release is live.",
+       "injected": [
+        {
+         "skill_id": "prepositions_time_place",
+         "original": "at home",
+         "corrupted": "in home"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the release",
+         "corrupted": "release"
+        }
+       ],
+       "reply": "Your mom\u2019s cooking must be tempting after all that testing. Do you have a favorite cricket match you\u2019re hoping to catch this weekend?",
+       "adopted_word": "thrilled"
+      },
+      {
+       "clean": "I\u2019m hoping to catch the India vs England series that starts on Saturday. It\u2019s a good chance to unwind after the release, and I\u2019ll probably join a few friends at the local bar to watch the game together.",
+       "spoken": "I\u2019m hoping to catch India vs England series that starts in Saturday. It\u2019s good chance to unwind after release, and I\u2019ll probably join a few friends at the local bar to watch the game together.",
+       "injected": [
+        {
+         "skill_id": "prepositions_time_place",
+         "original": "on Saturday",
+         "corrupted": "in Saturday"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the India",
+         "corrupted": "India"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a good",
+         "corrupted": "good"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the release",
+         "corrupted": "release"
+        }
+       ],
+       "reply": "Sounds like a great plan! When you got the release live on Friday, what were you doing at home just before you celebrated? Did you manage to avoid any procrastinate moments and jump straight into the game prep?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I was just doing a quick cleanup of the test logs and then logged out early, so I could be home by 5\u202fpm. I ate a simple pasta and then turned on the TV to the match, trying to stay focused on the game. I didn\u2019t really procrastinate; I just wanted to make sure I was ready to watch it.",
+       "spoken": "I was just doing a quick cleanup of test logs and then logged out early, so I could be home by 5\u202fpm. I ate a simple pasta and then turned on the TV to the match, trying to stay focused on the game. I didn\u2019t really procrastinate; I just wanted to make sure I was ready to watch it.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the test",
+         "corrupted": "test"
+        }
+       ],
+       "reply": "It's a good chance to unwind right after a busy day, especially with that pasta and the match on. Who are you rooting for in the India\u2011England series\u2014any favorite player you\u2019re keeping an eye on?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 222,
+      "errors": 7,
+      "errors_per_100w": 3.15,
+      "target_accuracy": 0.333,
+      "mattr": 0.908,
+      "mean_utterance_len": 44.4,
+      "subordination_rate": 1.4,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [],
+      "target_skills": [
+       "past_continuous",
+       "prepositions_time_place"
+      ],
+      "benchmark": false,
+      "cefr": "B1"
+     },
+     "opener": "Hey! How\u2019s the tight project deadline shaping up this week?"
+    }
+   ]
+  },
+  "sim-priya-control": {
+   "persona": {
+    "id": "sim-priya",
+    "name": "Priya",
+    "l1": "Tamil",
+    "level": "A2",
+    "bio": "34, home baker in Chennai starting to sell cakes on Instagram. Has two kids, her husband works in a bank, loves Ilaiyaraaja songs and watering her plants every morning.",
+    "error_rates": {
+     "past_simple": 0.6,
+     "plurals": 0.5,
+     "sv_agreement": 0.6,
+     "question_formation": 0.7,
+     "articles": 0.4
+    },
+    "style": "warm, enthusiastic, short sentences",
+    "known_facts": []
+   },
+   "score": {
+    "analyst": {
+     "overall": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null
+     },
+     "per_skill": {}
+    },
+    "planner": {
+     "sessions_targeting_a_planted_skill": null,
+     "planted_share_of_targets": null
+    },
+    "friend": {
+     "replies": 0,
+     "teacher_leak_rate": null,
+     "leaks": [],
+     "recast_rate": null,
+     "modeled_within_2_rate": null
+    }
+   },
+   "sessions": []
+  },
+  "sim-arjun-control": {
+   "persona": {
+    "id": "sim-arjun",
+    "name": "Arjun",
+    "l1": "Hindi",
+    "level": "B2",
+    "bio": "23, MBA student in Delhi doing an internship in marketing. Wants to work in London, follows football, has been to Goa and Manali, worried about placements.",
+    "error_rates": {
+     "present_perfect": 0.6,
+     "countable_uncountable": 0.7,
+     "articles": 0.25,
+     "past_irregular": 0.3
+    },
+    "style": "confident, talkative, likes giving opinions",
+    "known_facts": []
+   },
+   "score": {
+    "analyst": {
+     "overall": {
+      "tp": 18,
+      "fp": 1,
+      "fn": 17,
+      "precision": 0.947,
+      "recall": 0.514
+     },
+     "per_skill": {
+      "articles": {
+       "tp": 18,
+       "fp": 0,
+       "fn": 17,
+       "precision": 1.0,
+       "recall": 0.514
+      },
+      "sv_agreement": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "precision": 0.0,
+       "recall": null
+      }
+     }
+    },
+    "planner": {
+     "sessions_targeting_a_planted_skill": 0.4,
+     "planted_share_of_targets": 0.2
+    },
+    "friend": {
+     "replies": 25,
+     "teacher_leak_rate": 0.0,
+     "leaks": [],
+     "recast_rate": null,
+     "modeled_within_2_rate": null
+    }
+   },
+   "sessions": [
+    {
+     "n": 1,
+     "plan": {
+      "target_skills": [
+       "question_formation",
+       "word_order_adverbs"
+      ],
+      "target_words": [
+       "reluctant",
+       "overwhelmed",
+       "hectic"
+      ],
+      "opener": "Greet them warmly like a friend you talk to every day and ask how their day is going. Two short sentences.",
+      "followup_ids": [],
+      "benchmark": true,
+      "level": "B1",
+      "session_number": 2,
+      "rationale": "control: random targets"
+     },
+     "rates_before": {
+      "present_perfect": 0.6,
+      "countable_uncountable": 0.7,
+      "articles": 0.25,
+      "past_irregular": 0.3
+     },
+     "turns": [
+      {
+       "clean": "Hey Maya, thanks! I\u2019m in the middle of a client pitch today, but I just got back from a quick hike in Manali last weekend \u2013 the scenery was breathtaking. This week I\u2019m also preparing my portfolio for the London marketing role I\u2019m hoping to land after graduation.",
+       "spoken": "Hey Maya, thanks! I\u2019m in the middle of client pitch today, but I just got back from a quick hike in Manali last weekend \u2013 scenery was breathtaking. This week I\u2019m also preparing my portfolio for the London marketing role I\u2019m hoping to land after graduation.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a client",
+         "corrupted": "client"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the scenery",
+         "corrupted": "scenery"
+        }
+       ],
+       "reply": "That sounds amazing\u2014Manali must have been a perfect reset before the pitch. How's the portfolio shaping up for the London role?",
+       "adopted_word": null
+      },
+      {
+       "clean": "It\u2019s going well, thanks! The portfolio is shaping up nicely; I\u2019ve added the campaign case studies from my internship and a few data\u2011driven visuals that I think will catch a London recruiter\u2019s eye. This week I\u2019ll finish polishing the cover letter before sending it out.",
+       "spoken": "It\u2019s going well, thanks! The portfolio is shaping up nicely; I\u2019ve added campaign case studies from my internship and a few data\u2011driven visuals that I think will catch a London recruiter\u2019s eye. This week I\u2019ll finish polishing cover letter before sending it out.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the campaign",
+         "corrupted": "campaign"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the cover",
+         "corrupted": "cover"
+        }
+       ],
+       "reply": "Nice work! Are you feeling a bit reluctant to hit send on the cover letter, or are you ready to launch it?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019m ready to hit send. I\u2019ve double\u2011checked the tone and made sure the numbers highlight the impact \u2013 35% lift in engagement for that campaign. Once it\u2019s out, I\u2019ll follow up with a quick call to the recruiter to keep the momentum going.",
+       "spoken": "I\u2019m ready to hit send. I\u2019ve double\u2011checked tone and made sure numbers highlight the impact \u2013 35% lift in engagement for that campaign. Once it\u2019s out, I\u2019ll follow up with a quick call to recruiter to keep momentum going.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the tone",
+         "corrupted": "tone"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the numbers",
+         "corrupted": "numbers"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the recruiter",
+         "corrupted": "recruiter"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the momentum",
+         "corrupted": "momentum"
+        }
+       ],
+       "reply": "Congrats on nailing those numbers\u201435% is impressive! I\u2019m feeling a little overwhelmed myself, still polishing the cover letter for a friend\u2019s application. Speaking of great experiences, can you tell me about a trip or a day out you really loved?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I remember a road trip to Goa last year \u2013 we rented a scooter, drove along the coast, stopped for seafood at a beach shack, and spent a night watching the sunset over the Arabian Sea. The relaxed vibe there really helped me clear my head before the internship deadlines. It\u2019s the kind of spontaneous adventure that keeps me motivated.",
+       "spoken": "I remember a road trip to Goa last year \u2013 we rented a scooter, drove along the coast, stopped for seafood at a beach shack, and spent night watching the sunset over the Arabian Sea. relaxed vibe there really helped me clear my head before internship deadlines. It\u2019s the kind of spontaneous adventure that keeps me motivated.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a night",
+         "corrupted": "night"
+        },
+        {
+         "skill_id": "articles",
+         "original": "The relaxed",
+         "corrupted": "relaxed"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the internship",
+         "corrupted": "internship"
+        }
+       ],
+       "reply": "That sounds like the perfect blend of chill and inspiration. How often do you manage to slip in those spontaneous trips when life gets hectic?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I try to squeeze in a quick weekend getaway whenever I can, usually after a big project deadline. Last month I just finished a short trip to Jaipur for a friends\u2019 wedding, which gave me a good break before the internship finals. It\u2019s tough, but those little escapes keep me energized for the next challenge.",
+       "spoken": "I try to squeeze in a quick weekend getaway whenever I can, usually after big project deadline. Last month I just finished a short trip to Jaipur for a friends\u2019 wedding, which gave me a good break before the internship finals. It\u2019s tough, but those little escapes keep me energized for next challenge.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a big",
+         "corrupted": "big"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the next",
+         "corrupted": "next"
+        }
+       ],
+       "reply": "Sounds like a smart way to recharge. Do you have any next mini\u2011adventure in mind after the internship finals?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 249,
+      "errors": 6,
+      "errors_per_100w": 2.41,
+      "target_accuracy": null,
+      "mattr": 0.934,
+      "mean_utterance_len": 49.8,
+      "subordination_rate": 2.0,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [],
+      "target_skills": [
+       "question_formation",
+       "word_order_adverbs"
+      ],
+      "benchmark": true,
+      "cefr": null
+     },
+     "opener": "Hey! It's great to hear your voice. How's your day going?"
+    },
+    {
+     "n": 2,
+     "plan": {
+      "target_skills": [
+       "past_continuous",
+       "relative_clauses"
+      ],
+      "target_words": [
+       "reluctant",
+       "thrilled",
+       "struggle"
+      ],
+      "opener": "Greet them warmly like a friend you talk to every day and ask how their day is going. Two short sentences.",
+      "followup_ids": [],
+      "benchmark": false,
+      "level": "B1",
+      "session_number": 3,
+      "rationale": "control: random targets"
+     },
+     "rates_before": {
+      "present_perfect": 0.582,
+      "countable_uncountable": 0.679,
+      "articles": 0.242,
+      "past_irregular": 0.291
+     },
+     "turns": [
+      {
+       "clean": "Hey Maya, it\u2019s going pretty well. I\u2019ve been finishing up the internship report and feeling a bit reluctant about the upcoming placement talks, but I\u2019m hoping to land something in London soon. This week I also managed to squeeze in a quick trip to Goa for a friend\u2019s wedding.",
+       "spoken": "Hey Maya, it\u2019s going pretty well. I\u2019ve been finishing up internship report and feeling a bit reluctant about the upcoming placement talks, but I\u2019m hoping to land something in London soon. This week I also managed to squeeze in a quick trip to Goa for a friend\u2019s wedding.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the internship",
+         "corrupted": "internship"
+        }
+       ],
+       "reply": "Congrats on wrapping up the report and getting to Goa for the wedding\u2014must've been a fun break! How are you feeling about the placement talks for London?",
+       "adopted_word": "reluctant"
+      },
+      {
+       "clean": "I\u2019m a bit nervous about the talks, but I\u2019ve been preparing my portfolio and networking online. The London market looks promising, especially with the tech and marketing roles I\u2019ve seen. Hopefully the conversations will go well and I\u2019ll get a good offer soon.",
+       "spoken": "I\u2019m a bit nervous about the talks, but I\u2019ve been preparing my portfolio and networking online. The London market looks promising, especially with the tech and marketing roles I\u2019ve seen. Hopefully the conversations will go well and I\u2019ll get a good offer soon.",
+       "injected": [],
+       "reply": "Sounds like you\u2019ve got a solid plan and some exciting opportunities ahead. Have you thought about any mini\u2011adventure you\u2019d like to take once everything settles down?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019m actually looking forward to a short trip to Brighton next month. I\u2019ll spend a weekend on the coast, catch a football match at the ground, and maybe try some local fish and chips. It\u2019s a good break before the final placement interviews.",
+       "spoken": "I\u2019m actually looking forward to a short trip to Brighton next month. I\u2019ll spend a weekend on the coast, catch a football match at the ground, and maybe try some local fish and chips. It\u2019s good break before the final placement interviews.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a good",
+         "corrupted": "good"
+        }
+       ],
+       "reply": "Brighton sounds perfect\u2014a seaside vibe and a match, what could be better? Are you planning to explore any other spots while you\u2019re there?",
+       "adopted_word": null
+      },
+      {
+       "clean": "Sure, I\u2019ll probably hit a few caf\u00e9s and the pier, maybe check out a local art gallery. If the weather\u2019s good, I might even take a short walk up to the cliffs for a better view.",
+       "spoken": "Sure, I\u2019ll probably hit a few caf\u00e9s and pier, maybe check out a local art gallery. If weather\u2019s good, I might even take a short walk up to the cliffs for a better view.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the pier",
+         "corrupted": "pier"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the weather",
+         "corrupted": "weather"
+        }
+       ],
+       "reply": "That sounds lovely, especially the walk along the cliffs. Speaking of inspiration, is there someone you really admire\u2014maybe a mentor or a public figure\u2014who\u2019s shaped how you think about your career? It\u2019s a good break to reflect on that before the interviews.",
+       "adopted_word": null
+      },
+      {
+       "clean": "I really admire Sundar Pichai; his focus on user experience and steady growth in a huge company shows how to combine innovation with responsibility. His journey from a small town in India to leading Google inspires me to keep learning and stay patient through the placement process.",
+       "spoken": "I really admire Sundar Pichai; his focus on user experience and steady growth in a huge company shows how to combine innovation with responsibility. His journey from a small town in India to leading Google inspires me to keep learning and stay patient through the placement process.",
+       "injected": [],
+       "reply": "Sundar\u2019s story is truly inspiring\u2014great blend of vision and humility. Do you have any particular project in mind that you\u2019d like to showcase in your portfolio, maybe something that reflects that user\u2011focused mindset?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 228,
+      "errors": 3,
+      "errors_per_100w": 1.32,
+      "target_accuracy": null,
+      "mattr": 0.897,
+      "mean_utterance_len": 45.6,
+      "subordination_rate": 0.4,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [
+       "reluctant"
+      ],
+      "target_skills": [
+       "past_continuous",
+       "relative_clauses"
+      ],
+      "benchmark": false,
+      "cefr": "B1"
+     },
+     "opener": "Hey there! How's your day going so far?"
+    },
+    {
+     "n": 3,
+     "plan": {
+      "target_skills": [
+       "gerund_infinitive",
+       "present_perfect"
+      ],
+      "target_words": [
+       "overwhelmed",
+       "thrilled",
+       "struggle"
+      ],
+      "opener": "Greet them like an old friend and ask how this went: Submitted a cover letter for a campaign role with a 35% lift in engagement metric highlighted. Keep it to two short sentences.",
+      "followup_ids": [
+       "b4eeeaa8-2a73-44f4-8ff4-a17db92eeabb"
+      ],
+      "benchmark": false,
+      "level": "B1",
+      "session_number": 4,
+      "rationale": "control: random targets"
+     },
+     "rates_before": {
+      "present_perfect": 0.565,
+      "countable_uncountable": 0.659,
+      "articles": 0.235,
+      "past_irregular": 0.282
+     },
+     "turns": [
+      {
+       "clean": "It felt great\u2014like hitting a winning goal. I was sure the 35\u202f% lift would catch their eye, and I think it did. Now I\u2019m just hoping they call back soon.",
+       "spoken": "It felt great\u2014like hitting a winning goal. I was sure the 35\u202f% lift would catch their eye, and I think it did. Now I\u2019m just hoping they call back soon.",
+       "injected": [],
+       "reply": "That excitement is contagious! Have you thought about which project you\u2019ll spotlight next in your portfolio?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019m already planning to showcase a campaign where I boosted social media reach by 50% in just three weeks. It\u2019s a good contrast to the engagement lift, and I think it will look solid on my portfolio. I\u2019ll send it over next week once the internship report is finalized.",
+       "spoken": "I\u2019m already planning to showcase a campaign where I boosted social media reach by 50% in just three weeks. It\u2019s a good contrast to engagement lift, and I think it will look solid on my portfolio. I\u2019ll send it over next week once the internship report is finalized.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the engagement",
+         "corrupted": "engagement"
+        }
+       ],
+       "reply": "Sounds impressive, and a solid mix for sure. Are you feeling a bit overwhelmed juggling the report and the portfolio, or is the momentum keeping you going?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019m feeling the momentum, really. The report is tight but I\u2019ve got a clear timeline, so it\u2019s keeping me focused rather than overwhelmed. Plus, the project I mentioned will tie in nicely once the report is ready.",
+       "spoken": "I\u2019m feeling the momentum, really. The report is tight but I\u2019ve got a clear timeline, so it\u2019s keeping me focused rather than overwhelmed. Plus, the project I mentioned will tie in nicely once the report is ready.",
+       "injected": [],
+       "reply": "I\u2019m thrilled you\u2019ve got that clear rhythm going. What\u2019s the next mini\u2011adventure you\u2019ve got lined up once everything\u2019s submitted?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019m heading to the local market next week to scout some street\u2011food spots for a quick content shoot; it\u2019ll give me a fresh angle before the interview in London. After that, I\u2019ll probably hit the gym to reset and keep the energy up.",
+       "spoken": "I\u2019m heading to the local market next week to scout some street\u2011food spots for quick content shoot; it\u2019ll give me fresh angle before interview in London. After that, I\u2019ll probably hit the gym to reset and keep energy up.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a quick",
+         "corrupted": "quick"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a fresh",
+         "corrupted": "fresh"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the interview",
+         "corrupted": "interview"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the energy",
+         "corrupted": "energy"
+        }
+       ],
+       "reply": "That street\u2011food shoot sounds delicious and perfect for a fresh perspective. Which dish are you most excited to capture?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019m most excited about the paneer tikka masala. It\u2019s got that smoky flavor and vibrant colors, perfect for a quick, eye\u2011catching shot. I'll grab a few bites and shoot in a few minutes.",
+       "spoken": "I\u2019m most excited about the paneer tikka masala. It\u2019s got that smoky flavor and vibrant colors, perfect for a quick, eye\u2011catching shot. I'll grab a few bites and shoot in a few minutes.",
+       "injected": [],
+       "reply": "Paneer tikka masala will definitely pop on camera. Hope the shoot goes smoothly\u2014any chance you might struggle with lighting in the market\u2019s hustle?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 200,
+      "errors": 2,
+      "errors_per_100w": 1.0,
+      "target_accuracy": null,
+      "mattr": 0.913,
+      "mean_utterance_len": 40,
+      "subordination_rate": 2.0,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [],
+      "target_skills": [
+       "gerund_infinitive",
+       "present_perfect"
+      ],
+      "benchmark": false,
+      "cefr": "B1"
+     },
+     "opener": "Hey! How did it feel sending that cover letter with the 35% lift in engagement highlighted?"
+    },
+    {
+     "n": 4,
+     "plan": {
+      "target_skills": [
+       "present_perfect",
+       "future_forms"
+      ],
+      "target_words": [
+       "overwhelmed",
+       "tempting",
+       "procrastinate"
+      ],
+      "opener": "Greet them like an old friend and ask how this went: Finishing up an internship report. Keep it to two short sentences.",
+      "followup_ids": [
+       "7da5e65b-f0a4-4f98-b61c-0d15a2c340d7"
+      ],
+      "benchmark": false,
+      "level": "B1",
+      "session_number": 5,
+      "rationale": "control: random targets"
+     },
+     "rates_before": {
+      "present_perfect": 0.423,
+      "countable_uncountable": 0.639,
+      "articles": 0.228,
+      "past_irregular": 0.274
+     },
+     "turns": [
+      {
+       "clean": "It went well, but I feel a bit overwhelmed with the last edits. I\u2019ve just finished the marketing strategy section and am double\u2011checking the data before sending it off. Now I\u2019m planning a trip to Goa next month to clear my head.",
+       "spoken": "It went well, but I feel a bit overwhelmed with the last edits. I\u2019ve just finished the marketing strategy section and am double\u2011checking the data before sending it off. Now I\u2019m planning a trip to Goa next month to clear my head.",
+       "injected": [],
+       "reply": "That sounds like solid progress, especially getting the strategy polished. A little Goa escape will do wonders for a fresh perspective. Any particular spot in Goa you\u2019re excited to explore first?",
+       "adopted_word": "overwhelmed"
+      },
+      {
+       "clean": "I\u2019m heading straight to Baga Beach first; the surf spots there are great for a quick break. After that I\u2019ll hit the spice markets in Panaji to taste some fresh seafood. I\u2019ll keep you posted once the report is officially sent!",
+       "spoken": "I\u2019m heading straight to Baga Beach first; the surf spots there are great for a quick break. After that I\u2019ll hit the spice markets in Panaji to taste some fresh seafood. I\u2019ll keep you posted once the report is officially sent!",
+       "injected": [],
+       "reply": "Baga\u2019s perfect for catching some waves, and those Panaji markets are legendary for the seafood. When you get back, what\u2019s the next piece of your portfolio you\u2019ll tackle for the London applications?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019ll send the report by Friday and then my schedule will get a bit hectic, but I\u2019m already drafting the cover letter for the London firms. After that, I\u2019ll focus on building a case study from my internship projects to showcase my campaign results. Stay tuned\u2014will let you know which companies I\u2019m applying to next!",
+       "spoken": "I\u2019ll send report by Friday and then my schedule will get a bit hectic, but I\u2019m already drafting the cover letter for the London firms. After that, I\u2019ll focus on building a case study from my internship projects to showcase my campaign results. Stay tuned\u2014will let you know which companies I\u2019m applying to next!",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the report",
+         "corrupted": "report"
+        }
+       ],
+       "reply": "That\u2019s a smart plan\u2014turning your internship work into a case study will really stand out. Which angle of the campaign are you thinking of highlighting most?",
+       "adopted_word": "hectic"
+      },
+      {
+       "clean": "I\u2019m leaning toward highlighting the data\u2011driven part of the campaign\u2014how we used customer segmentation to boost engagement by 20%. That shows I can turn insights into results, which I think London recruiters will notice. I\u2019ll share the exact figures once the case study draft is ready.",
+       "spoken": "I\u2019m leaning toward highlighting the data\u2011driven part of campaign\u2014how we used customer segmentation to boost engagement by 20%. That shows I can turn insights into results, which I think London recruiters will notice. I\u2019ll share the exact figures once the case study draft is ready.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the campaign",
+         "corrupted": "campaign"
+        }
+       ],
+       "reply": "That data\u2011driven angle sounds impressive, especially a 20\u202f% lift. Once you\u2019ve sent the report on Friday, do you think you\u2019ll have a moment to unwind before diving into the case study, or will the schedule stay pretty packed?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I think I\u2019ll squeeze in a short break on Saturday, maybe a quick run at the campus track, but mostly I\u2019ll be drafting the case study early Sunday. The London firms expect solid evidence, so I\u2019m keeping the data ready to showcase that 20\u202f% lift. I\u2019ll let you know once the report goes out.",
+       "spoken": "I think I\u2019ll squeeze in a short break on Saturday, maybe a quick run at the campus track, but mostly I\u2019ll be drafting the case study early Sunday. The London firms expect solid evidence, so I\u2019m keeping data ready to showcase that 20\u202f% lift. I\u2019ll let you know once the report goes out.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the data",
+         "corrupted": "data"
+        }
+       ],
+       "reply": "Sounds like a good balance\u2014quick run for a reset and then straight into the case study. It\u2019ll be great to show that 20\u202f% lift as part of the campaign\u2019s success story. How are you feeling about the data visuals you\u2019ll include?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 252,
+      "errors": 2,
+      "errors_per_100w": 0.79,
+      "target_accuracy": 1.0,
+      "mattr": 0.909,
+      "mean_utterance_len": 50.4,
+      "subordination_rate": 2.8,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [
+       "overwhelmed",
+       "hectic"
+      ],
+      "target_skills": [
+       "future_forms",
+       "present_perfect"
+      ],
+      "benchmark": false,
+      "cefr": "B1"
+     },
+     "opener": "Hey! How did wrapping up your internship report go?"
+    },
+    {
+     "n": 5,
+     "plan": {
+      "target_skills": [
+       "conditionals_3",
+       "past_simple"
+      ],
+      "target_words": [
+       "thrilled",
+       "tempting",
+       "procrastinate"
+      ],
+      "opener": "Greet them warmly like a friend you talk to every day and ask how their day is going. Two short sentences.",
+      "followup_ids": [],
+      "benchmark": false,
+      "level": "B1",
+      "session_number": 6,
+      "rationale": "control: random targets"
+     },
+     "rates_before": {
+      "present_perfect": 0.318,
+      "countable_uncountable": 0.62,
+      "articles": 0.221,
+      "past_irregular": 0.266
+     },
+     "turns": [
+      {
+       "clean": "Hey Maya, thanks! I'm finishing up a marketing project for a client today, then I have a meeting with a London agency next week. The weekend in Goa was great, but I\u2019m already thinking about how to land a placement in London.",
+       "spoken": "Hey Maya, thanks! I'm finishing up a marketing project for a client today, then I have a meeting with a London agency next week. weekend in Goa was great, but I\u2019m already thinking about how to land a placement in London.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "The weekend",
+         "corrupted": "weekend"
+        }
+       ],
+       "reply": "Sounds like a busy but exciting week! How are you feeling about the agency meeting\u2014any particular angles you want to highlight?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019m feeling quite confident and thrilled about the meeting; I want to showcase my data\u2011driven campaign ideas and how they can boost brand engagement for the agency. I\u2019ll also mention my recent work with the student start\u2011up where we grew social media followers by 30% in two months. This should give them a clear picture of what I can bring to London.",
+       "spoken": "I\u2019m feeling quite confident and thrilled about meeting; I want to showcase my data\u2011driven campaign ideas and how they can boost brand engagement for agency. I\u2019ll also mention my recent work with student start\u2011up where we grew social media followers by 30% in two months. This should give them a clear picture of what I can bring to London.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the meeting",
+         "corrupted": "meeting"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the agency",
+         "corrupted": "agency"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the student",
+         "corrupted": "student"
+        }
+       ],
+       "reply": "That\u2019s a solid story to tell, especially with those numbers. Have you thought about any specific questions you\u2019d like to ask them to show you\u2019re really invested?",
+       "adopted_word": "thrilled"
+      },
+      {
+       "clean": "I\u2019ll ask about their current biggest challenge, especially if it\u2019s a struggle with audience reach, and how I could help solve it with data insights. Also want to know what skills they find most valuable for a new hire. That way I show I\u2019m genuinely interested.",
+       "spoken": "I\u2019ll ask about their current biggest challenge, especially if it\u2019s struggle with audience reach, and how I could help solve it with data insights. Also want to know what skills they find most valuable for new hire. That way I show I\u2019m genuinely interested.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a struggle",
+         "corrupted": "struggle"
+        },
+        {
+         "skill_id": "articles",
+         "original": "a new",
+         "corrupted": "new"
+        }
+       ],
+       "reply": "Smart move, asking about their challenges will definitely stand out. How are you prepping your portfolio to back up those data insights?",
+       "adopted_word": "struggle"
+      },
+      {
+       "clean": "I\u2019m pulling together a few case studies from my internship and a quick slide deck that shows the before\u2011and\u2011after of the student start\u2011up\u2019s engagement metrics. I\u2019ll also add a short video of me explaining the funnel analysis we did over the weekend. That should give them a clear visual of my data\u2011driven approach.",
+       "spoken": "I\u2019m pulling together a few case studies from my internship and quick slide deck that shows the before\u2011and\u2011after of student start\u2011up\u2019s engagement metrics. I\u2019ll also add a short video of me explaining the funnel analysis we did over weekend. That should give them a clear visual of my data\u2011driven approach.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "a quick",
+         "corrupted": "quick"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the student",
+         "corrupted": "student"
+        },
+        {
+         "skill_id": "articles",
+         "original": "the weekend",
+         "corrupted": "weekend"
+        }
+       ],
+       "reply": "That sounds impressive, especially the video walkthrough. Do you have a particular story from the internship that you\u2019re most excited to highlight?",
+       "adopted_word": null
+      },
+      {
+       "clean": "I\u2019m most excited to talk about the campaign we launched for the student start\u2011up last month, where we used audience segmentation to double their engagement in just eight weeks. It shows my ability to translate data into real results, and I can share the metrics in my deck for the London agency.",
+       "spoken": "I\u2019m most excited to talk about the campaign we launched for the student start\u2011up last month, where we used audience segmentation to double their engagement in just eight weeks. It shows my ability to translate data into real results, and I can share metrics in my deck for the London agency.",
+       "injected": [
+        {
+         "skill_id": "articles",
+         "original": "the metrics",
+         "corrupted": "metrics"
+        }
+       ],
+       "reply": "That result is really impressive\u2014doubling engagement in eight weeks shows you can turn insights into impact. How are you feeling about the video you\u2019ll record over the weekend to explain the funnel analysis?",
+       "adopted_word": null
+      }
+     ],
+     "metrics": {
+      "user_turns": 5,
+      "user_words": 261,
+      "errors": 6,
+      "errors_per_100w": 2.3,
+      "target_accuracy": 1.0,
+      "mattr": 0.935,
+      "mean_utterance_len": 52.2,
+      "subordination_rate": 2.3,
+      "wpm": null,
+      "fillers_per_100w": null,
+      "long_pauses_per_turn": null,
+      "words_used": [
+       "thrilled",
+       "struggle"
+      ],
+      "target_skills": [
+       "conditionals_3",
+       "past_simple"
+      ],
+      "benchmark": false,
+      "cefr": "B1"
+     },
+     "opener": "Hey, good to hear your voice! How's your day shaping up?"
+    }
+   ]
+  }
+ }
+}

@@ -65,8 +65,8 @@ export default function EvalPage() {
   );
 }
 
-function finalPlantedRate(L: EvalLearner) {
-  const last = L.true_rates.at(-1) ?? {};
+function finalPlantedRate(L: EvalLearner, chats?: number) {
+  const last = (chats ? L.true_rates[chats - 1] : L.true_rates.at(-1)) ?? {};
   const ks = Object.keys(L.planted);
   return ks.reduce((a, k) => a + (last[k] ?? 0), 0) / ks.length;
 }
@@ -75,7 +75,10 @@ function ABCompare({ main, control }: { main: EvalRun; control: EvalRun }) {
   const pairs = Object.entries(control.learners)
     .map(([cid, c]) => {
       const mid = Object.keys(main.learners).find((m) => cid.startsWith(m));
-      return mid ? { name: c.name, tutor: main.learners[mid], ctrl: c } : null;
+      if (!mid || !c.true_rates.length) return null;
+      // Compare at equal chat counts: a control run cut short by provider quotas is still fair.
+      const chats = Math.min(main.learners[mid].true_rates.length, c.true_rates.length);
+      return { name: c.name, tutor: main.learners[mid], ctrl: c, chats };
     })
     .filter((p): p is NonNullable<typeof p> => p != null);
   if (!pairs.length) return null;
@@ -83,15 +86,16 @@ function ABCompare({ main, control }: { main: EvalRun; control: EvalRun }) {
     <section className="rounded-2xl bg-[var(--surface)] p-4">
       <h2 className="mb-1 text-sm font-medium">Tutor planner vs random targets</h2>
       <p className="mb-3 text-xs text-[var(--muted)]">
-        Same learner, same seed, same number of chats. Only what the Friend steers toward differs.
+        Same learner, same seed, compared after the same number of chats. Only what the Friend
+        steers toward differs.
       </p>
       {pairs.map((p) => {
         const start = Object.values(p.tutor.planted).reduce((a, b) => a + b, 0) / Object.keys(p.tutor.planted).length;
         return (
           <div key={p.name} className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             <StatTile label={`${p.name}: planted error rate at start`} value={pct(start)} />
-            <StatTile label="After, tutor planner" value={pct(finalPlantedRate(p.tutor))} />
-            <StatTile label="After, random targets" value={pct(finalPlantedRate(p.ctrl))} />
+            <StatTile label={`After ${p.chats - 1} chats, tutor planner`} value={pct(finalPlantedRate(p.tutor, p.chats))} />
+            <StatTile label={`After ${p.chats - 1} chats, random targets`} value={pct(finalPlantedRate(p.ctrl, p.chats))} />
             <StatTile
               label="Chats that targeted a real weakness"
               value={pct(p.tutor.score.planner.sessions_targeting_a_planted_skill)}

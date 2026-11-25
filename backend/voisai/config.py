@@ -60,6 +60,10 @@ class Settings(BaseSettings):
     api_cors_origins: list[str] = ["http://localhost:3000"]
     # e.g. https://voisai(-[a-z0-9-]+)?\.vercel\.app to also allow Vercel preview deploys
     api_cors_origin_regex: str | None = None
+    # Agent worker pings this (e.g. https://<api>.onrender.com/api/health) so the API never
+    # idles into sleep. Unset locally.
+    keepalive_url: str | None = None
+    keepalive_every_s: float = 600
 
     # --- Product knobs
     learner_l1_default: str = "Hindi"  # native language assumption; drives L1-specific error priors

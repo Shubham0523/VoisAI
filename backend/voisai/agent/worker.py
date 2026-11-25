@@ -5,6 +5,9 @@ The browser joins a room with a token from the API; LiveKit dispatches this agen
 
 import json
 import logging
+import threading
+import time
+import urllib.request
 
 from livekit.agents import (
     AgentServer,
@@ -96,5 +99,28 @@ async def entrypoint(ctx: JobContext) -> None:
     session.generate_reply(instructions=call.opener)
 
 
+def start_keepalive(url: str | None, every_s: float) -> threading.Thread | None:
+    """Ping the API's health endpoint so a free host that sleeps on idle (Render: 15 min)
+    stays warm. The always-on agent worker is the free, reliable clock for this; cron
+    services and GitHub Actions schedules are either paid, rate-limited, or late."""
+    if not url:
+        return None
+
+    def loop() -> None:
+        while True:
+            try:
+                with urllib.request.urlopen(url, timeout=90) as r:
+                    log.debug("keepalive %s -> %s", url, r.status)
+            except (OSError, ValueError) as e:  # URLError/HTTPError/timeouts are OSErrors
+                log.warning("keepalive %s failed: %s", url, e)
+            time.sleep(every_s)
+
+    t = threading.Thread(target=loop, name="keepalive", daemon=True)
+    t.start()
+    return t
+
+
 if __name__ == "__main__":
+    # Main process only: job subprocesses import this module but are not __main__.
+    start_keepalive(settings.keepalive_url, settings.keepalive_every_s)
     cli.run_app(server)
